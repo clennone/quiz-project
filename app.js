@@ -169,7 +169,7 @@ function validateAnswer() {
         finishDiv.classList.remove('hide');
         const lastDiv = document.createElement('div');
         let content = `
-            <p> User: ${newUser.name}</p>
+            <p style='color:red'> User: ${newUser.name}</p>
             <p> Age: ${newUser.age}</p>
             <p> Points: ${newUser.points}</p>
         `
@@ -178,8 +178,6 @@ function validateAnswer() {
 
         finishDiv.appendChild(lastDiv)
         
-
-        quizBox.appendChild(message)
     }
     
 }
