@@ -1,0 +1,250 @@
+:root{
+    --principalFont: 'Roboto', sans-serif;
+    --bckgColor: #000022;
+    --boxColor: #001242;
+    --highlightColor: #0094C6;
+    --markColor: #005E7C;
+    --darkColor: #040F16;
+    --lightColor: #ffffff;
+}
+
+/*global featueres*/
+
+.hide{
+    display: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;    
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+body{
+    font-size: 16px;
+    font-family: var(--principalFont);
+    background: var(--bckgColor);
+    
+}
+
+ul{
+    padding: 0;
+    margin: 2;
+}
+
+ul li{
+    list-style: none;
+
+}
+
+.border-red{
+    border-color: red;
+}
+
+.error-msg{
+    color: red;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+
+
+.opacity{
+    opacity: 50%;
+}
+
+.container{
+    min-width: 100vw;
+    min-height: 100vh;
+    
+}
+
+/*box container*/
+.box{
+    margin: 20vh 20vw;
+    border: 1px solid var(--lightColor);
+    padding: 5rem;
+    background-color: var(--boxColor);
+    border-radius: 20px;
+    transition: linear 1s;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.box ul{
+    display: flex;
+    justify-content: center;
+}
+
+.box ul li{
+    margin-top: 2rem;
+}
+
+/*user container*/
+
+.user-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: var(--lightColor);
+    margin-bottom: 4rem;
+}
+
+.user-data{
+    border-radius: 10px;
+    padding: 5px;
+    text-transform: uppercase;
+    color: var(--darkColor);
+    text-align: center;
+}
+
+
+.button-user{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.btn-style {
+    background: var(--highlightColor);
+    color: var(--lightColor);
+    border: .5px solid #eee;
+    border-radius: 20px;
+    text-shadow: none;
+    padding: 1rem 5rem;
+    transition: .5s;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.btn-style:hover {
+    transition: .5s;
+    background: var(--lightColor);
+    color: var(--darkColor);
+}
+
+
+
+@media (max-width: 728px){
+    .box{
+        margin: 40px;
+    }
+
+    .btn-style{
+        padding: .3rem 4rem;
+        margin: 2rem 0;
+    }
+}
+
+/*quiz container*/
+
+.question-title{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    color: var(--lightColor);
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+
+
+.answer-label {
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    padding: 1.4rem 1.6rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.answer-label:hover{
+    background: var(--darkColor);
+}
+
+.answer-label:focus-within {
+    background-color: var(--lightColor);
+}
+
+.answer-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.answer-design {
+    width: 22px;
+    height: 22px;
+    border-radius: 100px;
+    background: var(--highlightColor);
+    position: relative;
+}
+
+.answer-design::before {
+    content: '';
+    display: inline-block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    background: var(--lightColor);
+    transform: scale(1.1);
+    transition: .2s;
+}
+
+
+.answer-input:checked+.answer-design::before {
+    transform: scale(0);
+}
+
+.answer-text {
+    color: var(--lightColor);
+    margin-left: 1.4rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: .1s;
+}
+
+.answer-input:checked~.answer-text {
+    color: var(--highlightColor);
+}
+
+
+.cursor-disabled{
+    cursor: not-allowed;
+}

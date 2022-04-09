@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain your day</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container fade-in" id="user">
+        <div class="box">
+            <h2 class="user-title" id="user-player">Welcome Player</h2>
+            <ul>
+                <li>
+                    <input type="text" placeholder="Name" class="user-data" id="user-name">
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <input type="number" placeholder="Age" class="user-data" id="user-age" min="1" max="100" required>
+                </li>
+            </ul>
+            <div class="button-user">
+            <button class="btn-style" id="btn-user" type="submit">Start Quiz</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container fade-in hide" id="quiz">
+        <div class="box">
+            <h2 class="question-title" id="question">Question Test</h2>
+            <div>
+                <label class="answer-label">
+                    <input type="radio" class="answer-input" name="answer" id="a">
+                    <div class="answer-design"></div>
+                    <div class="answer-text text_a">hola</div>
+                </label>
+                
+                <label class="answer-label">
+                    <input type="radio" class="answer-input" name="answer" id="b">
+                    <div class="answer-design"></div>
+                    <div class="answer-text text_b">chau</div>
+                </label>
+                
+                <label class="answer-label">
+                    <input type="radio" class="answer-input" name="answer" id="c">
+                    <div class="answer-design"></div>
+                    <div class="answer-text text_c">ceo</div>
+                </label>
+                
+                <label class="answer-label">
+                    <input type="radio" class="answer-input" name="answer" id="d">
+                    <div class="answer-design"></div>
+                    <div class="answer-text text_d">cusco</div>
+                </label>
+            </div>
+            <div class="button-user">
+            <button class="btn-style" id="btn-quiz">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="finish-quiz hide">
+
+    </div>
+    
+    <script type="module" src="app.js"></script>
+</body>
+</html>
+
+
