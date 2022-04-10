@@ -29,6 +29,7 @@ html {
 }
 
 body{
+    margin: 0;
     font-size: 16px;
     font-family: var(--principalFont);
     background: var(--bckgColor);
@@ -63,14 +64,14 @@ ul li{
 }
 
 .container{
-    min-width: 100vw;
-    min-height: 100vh;
+    max-width: 100vw;
+    max-height: 100vh;
     
 }
 
 /*box container*/
 .box{
-    margin: 20vh 20vw;
+    margin: 20% 20%;
     border: 1px solid var(--lightColor);
     padding: 5rem;
     background-color: var(--boxColor);
@@ -154,12 +155,17 @@ ul li{
 
 
 @media (max-width: 728px){
+    .container{
+        width: 100%;
+        height: 100%;
+        
+    }
     .box{
         margin: 40px;
     }
 
     .btn-style{
-        padding: .3rem 4rem;
+        padding: .7rem 6rem;
         margin: 2rem 0;
     }
 }
@@ -247,4 +253,12 @@ ul li{
 
 .cursor-disabled{
     cursor: not-allowed;
+}
+
+.finish-quiz{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    border: 1px solid var(--lightColor);
+    color: var(--lightColor);
 }
