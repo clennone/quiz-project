@@ -12,10 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container fade-in">
-
-        <div class="box" id="user">
-            <h2 class="user-title" id="user-player">ñaño te amo</h2>
+    <div class="container fade-in" id="user">
+        <div class="box">
+            <h2 class="user-title" id="user-player">Welcome Player</h2>
             <ul>
                 <li>
                     <input type="text" placeholder="Name" class="user-data" id="user-name">
@@ -30,8 +29,10 @@
             <button class="btn-style" id="btn-user" type="submit">Start Quiz</button>
             </div>
         </div>
-    
-        <div class="box hide" id="quiz">
+    </div>
+
+    <div class="container fade-in hide" id="quiz">
+        <div class="box">
             <h2 class="question-title" id="question">Question Test</h2>
             <div>
                 <label class="answer-label">
@@ -62,18 +63,19 @@
             <button class="btn-style" id="btn-quiz">Submit</button>
             </div>
         </div>
-    
-        <!-- <div class="box">
-            <div class="finish-quiz">
-                
-                <p class='finish-user'> User: Chris</p>
-                <p class="finish-age"> Age: 20</p>
-                <p class="finish-points"> Points: 20</p>
-            </div>
-        </div> -->
-
-
     </div>
+    <!-- <div class="box">
+        <div class="finish-quiz">
+            
+            <p class='finish-user'> User: Chris</p>
+            <p class="finish-age"> Age: 20</p>
+            <p class="finish-points"> Points: 20</p>
+        </div>
+    </div> -->
+
+    <!-- <div class="footer">
+        <p>Made by Christian</p>
+    </div> -->
     
     <script type="module" src="app.js"></script>
 </body>

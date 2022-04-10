@@ -71,7 +71,7 @@ ul li{
 
 /*box container*/
 .box{
-    margin: 20% 20%;
+    margin: 20vh 20vw;
     border: 1px solid var(--lightColor);
     padding: 5rem;
     background-color: var(--boxColor);
