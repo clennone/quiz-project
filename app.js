@@ -165,7 +165,7 @@ function validateAnswer() {
     }else{
         quizBox.classList.add('hide')
         const finishDiv = document.querySelector('.finish-quiz');
-
+        alert('terminaste el quiz')
         finishDiv.classList.remove('hide');
         const lastDiv = document.createElement('div');
         let content = `
