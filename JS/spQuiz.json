@@ -1,0 +1,84 @@
+{
+    "Quiz" : [
+        {
+            "question": "¿Cuáles son los tipos de sabores primarios?",
+            "a": "Dulce, Amargo, Ácido, Salado, Umami",
+            "b": "Amargo, Dulce y Salado",
+            "c": "Salado, Dulce, Ácido",
+            "d": "Dulce y Amargo",
+            "correct": "a"
+        },
+        {
+            "question": "¿Cuál es el río más largo del mundo?",
+            "a": "Nilo",
+            "b": "Amazonas",
+            "c": "Misisipi",
+            "d": "Yeniséi",
+            "correct": "b"
+        },
+        {
+            "question": "¿Dónde originaron los juegos olímpicos?",
+            "a": "Alemania",
+            "b": "Tokio",
+            "c": "Grecia",
+            "d": "Estados Unidos",
+            "correct": "c"
+        },
+        {
+            "question": "¿Qué cantidad de huesos en el cuerpo humano?",
+            "a": "201",
+            "b": "204",
+            "c": "200",
+            "d": "206",
+            "correct": "d"
+        },
+        {
+            "question": "¿En qué año comenzó la II Guerra Mundial?",
+            "a": "1939",
+            "b": "1938",
+            "c": "1941",
+            "d": "1940",
+            "correct": "a"
+        },
+        {
+            "question": "¿Cuál es tercer planeta en el sistema solar?",
+            "a": "Marte",
+            "b": "Venus",
+            "c": "Mercurio",
+            "d": "Tierra",
+            "correct": "d"
+        },
+        {
+            "question": "¿Cuál es la ciudad de los rascacielos?",
+            "a": "Shenzhen",
+            "b": "Chicago",
+            "c": "New York",
+            "d": "Toronto",
+            "correct": "c"
+        },
+        {
+            "question": "¿Cuál es el nombre de la lengua oficial en china?",
+            "a": "Cantonés",
+            "b": "Jin",
+            "c": "Hakka",
+            "d": "Mandarin",
+            "correct": "d"
+        },
+        {
+            "question": "¿Cuál fue el primer metal que empleó el hombre?",
+            "a": "Cobre",
+            "b": "Niquel",
+            "c": "Aluminio",
+            "d": "Zinc",
+            "correct": "a"
+        },
+        {
+            "question": "¿En qué año apareció en el mercado el primer videojuego protagonizado por Super Mario?",
+            "a": "1980",
+            "b": "1983",
+            "c": "1981",
+            "d": "Ninguna de las anteriores",
+            "correct": "b"
+        }
+    ]
+}

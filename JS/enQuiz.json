@@ -1,0 +1,84 @@
+{
+    "Quiz" : [
+        {
+            "question": "What is actually electricity?",
+            "a": "A flow of water",
+            "b": "A flow of air",
+            "c": "A flow of electrons",
+            "d": "A flow of atoms",
+            "correct": "c"
+        },
+        {
+            "question": "Which is the easiest way to tell the age of many trees?",
+            "a": "To measure the width of the tree",
+            "b": "To count the rings on the trunk",
+            "c": "To count the number of leaves",
+            "d": "To measure the height of the tree",
+            "correct": "b"
+        },
+        {
+            "question": "Which did Viking people use as money?",
+            "a": "Rune stones",
+            "b": "Jewellery",
+            "c": "Seal skins",
+            "d": "Wool",
+            "correct": "b"
+        },
+        {
+            "question": "What is the main component of the sun?",
+            "a": "Liquid lava",
+            "b": "Gas",
+            "c": "Molten iron",
+            "d": "Rock",
+            "correct": "b"
+        },
+        {
+            "question": "Which of the following animals can run the fastest?",
+            "a": "Cheetah",
+            "b": "Leopard",
+            "c": "Tiger",
+            "d": "Lion",
+            "correct": "a"
+        },
+        {
+            "question": "Which of the following songs was the top-selling hit in 2019?",
+            "a": "Someone You Loved",
+            "b": "Old Town Road",
+            "c": "I Don’t Care",
+            "d": "Bad Guy",
+            "correct": "a"
+        },
+        {
+            "question": "The two biggest exporters of beers in Europe are Germany and …",
+            "a": "Spain",
+            "b": "France",
+            "c": "Italy",
+            "d": "Belgium",
+            "correct": "d"
+        },
+        {
+            "question": "The phrase: ”I think, therefore I am” was coined by which philosopher?",
+            "a": "Socrates",
+            "b": "Plato",
+            "c": "Aristotle",
+            "d": "Descartes",
+            "correct": "d"
+        },
+        {
+            "question": "What is the name of the first book of the Old Testament in the Bible?",
+            "a": "Exodus",
+            "b": "Genesis",
+            "c": "Proverbs",
+            "d": "Matthew",
+            "correct": "b"
+        },
+        {
+            "question": "How many time zones are there in total in the world?",
+            "a": "8",
+            "b": "16",
+            "c": "24",
+            "d": "32",
+            "correct": "c"
+        }
+    ]
+}

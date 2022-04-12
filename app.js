@@ -14,6 +14,12 @@ const textC = document.querySelector('.text_c');
 const textD = document.querySelector('.text_d');
 const btnQuiz = document.querySelector('#btn-quiz');
 
+const resp = await fetch('./JS/spQuiz.json');
+const data = await resp.json();
+const dataQuiz = await data.Quiz
+
+console.log(data)
+
 let currentQuiz = 0;
 
 //User creator
@@ -25,25 +31,6 @@ function User(name,age){
 
 let newUser = new User()
 
-//questions for quiz
-const dataQuiz = [
-    {
-        question: 'What was the age when Harry knews that he was a magician?',
-        a: '8',
-        b: '10',
-        c: '6',
-        d: '11',
-        correct: 'a'
-    },
-    {
-        question: 'What is the first spell that was cast by Hermione?',
-        a: 'Avada Kedavra',
-        b: 'Wingardium Leviosa',
-        c: 'Oculus Reparo',
-        d: 'Sectusempra',
-        correct: 'a'
-    },
-]
 
 eventListeners();
 
@@ -182,12 +169,3 @@ function validateAnswer() {
     
 }
 
-const mama = {
-    nombre: 'made',
-    casa: 'forense',
-    edad: 'consula'
-}
-
-const {nombre, casa, edad} = mama;
-
-console.log(nombre,casa,edad)
