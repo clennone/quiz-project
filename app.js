@@ -182,3 +182,12 @@ function validateAnswer() {
     
 }
 
+const mama = {
+    nombre: 'made',
+    casa: 'forense',
+    edad: 'consula'
+}
+
+const {nombre, casa, edad} = mama;
+
+console.log(nombre,casa,edad)
