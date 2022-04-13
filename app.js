@@ -1,5 +1,3 @@
-import { getCountry } from "./JS/getCountry.js";
-
 // user variables
 const userBox = document.querySelector('#user');
 const userName = document.querySelector('#user-name');
@@ -21,29 +19,38 @@ const boxLng = document.querySelector('#language');
 const btnSp = document.querySelector('#btn-sp');
 const btnEn = document.querySelector('#btn-en');
 
-let quiz = await fetch('./JSON/spQuiz.json');
-let data = await quiz.json();
-const spQuiz = data.Quiz;
+async function getQuizSp() {
+    const quiz = await fetch('./JSON/spQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
 
-quiz = await fetch('./JSON/enQuiz.json');
-data = await quiz.json();
-const enQuiz = data.Quiz;
+        return quiz.Quiz
+}
+
+async function getQuizEn() {
+    const quiz = await fetch('./JSON/enQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
+
+        return quiz.Quiz
+}
+
 
 let currentQuiz = 0;
 
-console.log(spQuiz)
-console.log(enQuiz)
 
 //User creator
 const player = {
-    name : '',
-    age : '',
-    points : 0
-};
+    name : String,
+    age : String,
+    points : Number
+}
 
 eventListeners();
 
+
 function eventListeners() {
+
     //when app start
     document.addEventListener('DOMContentLoaded', startApp);
     
@@ -55,23 +62,23 @@ function eventListeners() {
     btnUser.addEventListener('click', getPlayer);
 
     //validate lenguage
-    btnSp.addEventListener('click',() =>{
-        loadQuiz(spQuiz)
-    } );
-    btnEn.addEventListener('click',()=>{
-        loadQuiz(enQuiz)
-    });
+    btnSp.addEventListener('click', activeSp); 
+    btnSp.addEventListener('click', loadQuizSp); 
 
+    btnEn.addEventListener('click', activeEn);   
+    btnEn.addEventListener('click', loadQuizEn);
 
     btnQuiz.addEventListener('click',validateAnswer);
 };
+
+
 
 //Functions for USER BOX
 function startApp(){
     userName.value = '';
     userAge.value = '';
     btnUser.disabled = true;
-    btnUser.classList.add('cursor-disabled','opacity')
+    btnUser.classList.add('cursor-disabled','opacity');
 };
 
 //Validate fields
@@ -91,7 +98,7 @@ function validateFields(e) {
     const err = document.querySelector('p.error-msg');
 
     //remove error message and disable btn if everything is ok
-    if(userName.value != '' && userAge.value != ''){
+    if(userName.value !== '' && userAge.value !== ''){
         btnUser.disabled = false;
         btnUser.classList.remove('cursor-disabled','opacity');
         if(err){
@@ -116,6 +123,7 @@ function showError(){
 function getPlayer() {
     player.name = userName.value;
     player.age = userAge.value;
+    player.points = 0;
     console.log(player)
     userBox.classList.add('hide');
     boxLng.classList.remove('hide');
@@ -125,25 +133,29 @@ function getPlayer() {
 //Functions for quiz
 
 //load quiz
-function loadQuiz(data) {
-
-    //hide user box and show quiz bos
-    if(quizBox.classList = 'hide'){
-        boxLng.classList.add('hide');
-        quizBox.classList.remove('hide');
-    }
-
+function loadQuizSp() {
     // remove checked bottons
     answers.forEach(el => el.checked = false);
-
     // fill the quiz
-    let quiz = data[currentQuiz];
+    let quiz = dataSp[currentQuiz];
     question.innerText = quiz.question;
     textA.innerText = quiz.a;
     textB.innerText = quiz.b;
     textC.innerText = quiz.c;
     textD.innerText = quiz.d;
-}
+};
+
+function loadQuizEn() {
+    // remove checked bottons
+    answers.forEach(el => el.checked = false);
+     // fill the quiz
+    let quiz = dataEn[currentQuiz];
+    question.innerText = quiz.question;
+    textA.innerText = quiz.a;
+    textB.innerText = quiz.b;
+    textC.innerText = quiz.c;
+    textD.innerText = quiz.d;
+};
 
 //check answer
 function checked() {
@@ -154,27 +166,92 @@ function checked() {
         }
     })
     return checkedAnswer;
-}
+};
 
 
 //validate answer and start next quiz
 function validateAnswer() {
     let answer = checked();
 
-
     if(answer){
-        if(answer == dataQuiz[currentQuiz].correct){
-            newUser.points += 10;
+        if(btnSp.classList.contains('active')){
+            if(answer == dataSp[currentQuiz].correct){
+                player.points += 10;
+                Swal.fire({
+                    title: 'Correct!',
+                    timer: 1000,
+                    icon: 'success',
+                    showConfirmButton: false,
+                    
+                })
+            } else {
+                Swal.fire({
+                    title: 'Icorrect!',
+                    timer: 1000,
+                    icon: 'error',
+                    showConfirmButton: false,
+                })
+            }
+            currentQuiz++;
+            if(currentQuiz < dataSpLenght){
+                setTimeout( ()=> { loadQuizSp() },1300 )  
+            } else{
+                quizBox.classList.add('hide')
+                console.log(player)
+            }
+
         } else {
-            console.log('incorrect answer')
+            if(answer == dataEn[currentQuiz].correct){
+                player.points += 10;
+                Swal.fire({
+                    title: 'Correct!',
+                    timer: 1000,
+                    icon: 'success',
+                    showConfirmButton: false,
+                    
+                })
+            } else {
+                Swal.fire({
+                    title: 'Icorrect!',
+                    timer: 1000,
+                    icon: 'error',
+                    showConfirmButton: false,
+                })
+            }
+            currentQuiz++;
+            if(currentQuiz < dataEnLenght){
+                setTimeout( ()=> { loadQuizSp() },1300 )  
+            } else{
+                quizBox.classList.add('hide')
+                console.log(player)
+            }
         }
-    } 
-    currentQuiz++;
-    if(currentQuiz < dataQuiz.length){
-        loadQuiz();
-    }else{
-        quizBox.classList.add('hide');
+        
+
+    } else {
+        swal({
+            title: 'Wrong',
+            text: 'Select an answer!',
+            icon: 'error',
+        })
     }
+
+
     
 }
 
+function activeSp() {
+    btnSp.classList.add('active');
+    boxLng.classList.add('hide');
+    quizBox.classList.remove('hide');
+};
+
+function activeEn() {
+    boxLng.classList.add('hide');
+    quizBox.classList.remove('hide');
+};
+
+const dataSp = await getQuizSp();
+const dataEn = await getQuizEn();
+const dataSpLenght = dataSp.length
+const dataEnLenght = dataEn.length

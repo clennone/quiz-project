@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain your day</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -27,7 +29,7 @@
                     </li>
                 </ul>
                 <div class="button-user">
-                <button class="btn-style btn-cell" id="btn-user" type="submit">Start Quiz</button>
+                    <button class="btn-style btn-cell" id="btn-user" type="submit">Start Quiz</button>
                 </div>
             </div>
         </div>
@@ -49,7 +51,7 @@
         </div>
 
         <div class="fade-in hide" id="quiz">
-            <div class="box">
+            <div class="box fade-in">
                 <h2 class="question-title" id="question"></h2>
                 <div>
                     <label class="answer-label">
@@ -77,7 +79,7 @@
                     </label>
                 </div>
                 <div class="button-user">
-                <button class="btn-style" id="btn-quiz">Confirm</button>
+                    <button class="btn-style" id="btn-quiz">Confirm</button>
                 </div>
             </div>
         </div>
