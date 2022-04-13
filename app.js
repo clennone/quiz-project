@@ -199,13 +199,15 @@ function validateAnswer() {
                     showConfirmButton: false,
                 })
             }
-            qPoints.textContent = `Puntos: ${player.points}`;
             counter++;
-            qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
             currentQuiz++;
             
             if(currentQuiz < dataSpLenght){
-                setTimeout( ()=> { loadQuizSp() },1200 )  
+                setTimeout( ()=> { 
+                    qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
+                    qPoints.textContent = `Puntos: ${player.points}`;
+                    loadQuizSp() 
+                },1200 )  
             } else{
                 quizBox.classList.add('hide')
                 console.log(player)
@@ -229,13 +231,16 @@ function validateAnswer() {
                     showConfirmButton: false,
                 })
             }
-            qPoints.textContent = `Points: ${player.points}`;
+
             counter++;
-            qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
             currentQuiz++;
             
             if(currentQuiz < dataEnLenght){
-                setTimeout( ()=> { loadQuizEn() },1200 )  
+                setTimeout( ()=> { 
+                    qPoints.textContent = `Points: ${player.points}`;
+                    qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
+                    loadQuizEn() 
+                },1200 )  
             } else{
                 quizBox.classList.add('hide')
                 console.log(player)
