@@ -110,18 +110,17 @@ ul li{
 
 /*user container*/
 
-/* .user-title{
+.user-title{
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
     color: var(--lightColor);
     margin-bottom: 4rem;
-} */
+}
+
 img{
     max-width: 100%;
-    display: block;
-    margin: auto;
 }
 
 .user-data{
