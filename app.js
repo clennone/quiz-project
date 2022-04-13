@@ -236,9 +236,8 @@ function validateAnswer() {
         
 
     } else {
-        swal({
-            title: 'Wrong',
-            text: 'Select an answer!',
+        Swal.fire({
+            title: 'Select an answer!',
             icon: 'error',
         })
     }

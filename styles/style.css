@@ -135,9 +135,9 @@ ul li{
 }
 
 .btn-style {
-    background: var(--highlightColor);
+    background: var(--darkColor);
     color: var(--lightColor);
-    border: .5px solid #eee;
+    border: .2px solid var(--darkColor);
     border-radius: 20px;
     text-shadow: none;
     padding: 1rem 5rem;
