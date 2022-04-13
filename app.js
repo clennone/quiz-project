@@ -193,7 +193,7 @@ function validateAnswer() {
                 })
             } else {
                 Swal.fire({
-                    title: 'Icorrecto!',
+                    title: 'Incorrecto!',
                     timer: 1000,
                     icon: 'error',
                     showConfirmButton: false,
@@ -205,7 +205,7 @@ function validateAnswer() {
             currentQuiz++;
             
             if(currentQuiz < dataSpLenght){
-                setTimeout( ()=> { loadQuizSp() },1300 )  
+                setTimeout( ()=> { loadQuizSp() },1200 )  
             } else{
                 quizBox.classList.add('hide')
                 console.log(player)
@@ -223,7 +223,7 @@ function validateAnswer() {
                 })
             } else {
                 Swal.fire({
-                    title: 'Icorrect!',
+                    title: 'Incorrect!',
                     timer: 1000,
                     icon: 'error',
                     showConfirmButton: false,
@@ -235,7 +235,7 @@ function validateAnswer() {
             currentQuiz++;
             
             if(currentQuiz < dataEnLenght){
-                setTimeout( ()=> { loadQuizEn() },1300 )  
+                setTimeout( ()=> { loadQuizEn() },1200 )  
             } else{
                 quizBox.classList.add('hide')
                 console.log(player)
