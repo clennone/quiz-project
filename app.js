@@ -19,25 +19,11 @@ const boxLng = document.querySelector('#language');
 const btnSp = document.querySelector('#btn-sp');
 const btnEn = document.querySelector('#btn-en');
 
-async function getQuizSp() {
-    const quiz = await fetch('./JSON/spQuiz.json')
-        .then(res=> res.json())
-        .catch(err => console.log(err))
-
-        return quiz.Quiz
-}
-
-async function getQuizEn() {
-    const quiz = await fetch('./JSON/enQuiz.json')
-        .then(res=> res.json())
-        .catch(err => console.log(err))
-
-        return quiz.Quiz
-}
-
+const qPoints = document.querySelector('.question-points');
+const qCounter = document.querySelector('.question-counter');
 
 let currentQuiz = 0;
-
+let counter = 1;
 
 //User creator
 const player = {
@@ -62,11 +48,26 @@ function eventListeners() {
     btnUser.addEventListener('click', getPlayer);
 
     //validate lenguage
-    btnSp.addEventListener('click', activeSp); 
-    btnSp.addEventListener('click', loadQuizSp); 
+    btnSp.addEventListener('click',activeSp); 
+    btnSp.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Prepara el cerebro',
+            timer: 4000,
+            showConfirmButton: false,
+        })
+        setTimeout( ()=> { loadQuizSp() },4000 ) 
+    }); 
 
     btnEn.addEventListener('click', activeEn);   
-    btnEn.addEventListener('click', loadQuizEn);
+    btnEn.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Prepare your brain',
+            timer: 4000,
+            showConfirmButton: false,
+        })
+        setTimeout( ()=> { loadQuizEn() },4000 ) 
+    }); 
+
 
     btnQuiz.addEventListener('click',validateAnswer);
 };
@@ -79,13 +80,12 @@ function startApp(){
     userAge.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
-    Swal.fire({
-        title: 'Hi!',
-        text: 'Challenge your mind in this quiz',
-        timer: 5000,
-        showConfirmButton: false,
-        
-    })
+    // Swal.fire({
+    //     title: 'Hi!',
+    //     text: 'Challenge your mind in this quiz',
+    //     timer: 5000,
+    //     showConfirmButton: false,
+    // })
 };
 
 //Validate fields
@@ -185,7 +185,7 @@ function validateAnswer() {
             if(answer == dataSp[currentQuiz].correct){
                 player.points += 10;
                 Swal.fire({
-                    title: 'Correct!',
+                    title: 'Correcto!',
                     timer: 1000,
                     icon: 'success',
                     showConfirmButton: false,
@@ -193,13 +193,17 @@ function validateAnswer() {
                 })
             } else {
                 Swal.fire({
-                    title: 'Icorrect!',
+                    title: 'Icorrecto!',
                     timer: 1000,
                     icon: 'error',
                     showConfirmButton: false,
                 })
             }
+            qPoints.textContent = `Puntos: ${player.points}`;
+            counter++;
+            qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
             currentQuiz++;
+            
             if(currentQuiz < dataSpLenght){
                 setTimeout( ()=> { loadQuizSp() },1300 )  
             } else{
@@ -225,7 +229,11 @@ function validateAnswer() {
                     showConfirmButton: false,
                 })
             }
+            qPoints.textContent = `Points: ${player.points}`;
+            counter++;
+            qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
             currentQuiz++;
+            
             if(currentQuiz < dataEnLenght){
                 setTimeout( ()=> { loadQuizEn() },1300 )  
             } else{
@@ -249,13 +257,34 @@ function validateAnswer() {
 function activeSp() {
     btnSp.classList.add('active');
     boxLng.classList.add('hide');
-    quizBox.classList.remove('hide');
+    setTimeout( () => { quizBox.classList.remove('hide') },4000);
+    qPoints.textContent = `Puntos: ${player.points}`;
+    qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
 };
 
 function activeEn() {
     boxLng.classList.add('hide');
-    quizBox.classList.remove('hide');
+    setTimeout( () => { quizBox.classList.remove('hide') },4000);
+    qPoints.textContent = `Points: ${player.points}`;
+    qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
 };
+
+async function getQuizSp() {
+    const quiz = await fetch('./JSON/spQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
+
+        return quiz.Quiz
+}
+
+async function getQuizEn() {
+    const quiz = await fetch('./JSON/enQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
+
+        return quiz.Quiz
+}
+
 
 const dataSp = await getQuizSp();
 const dataEn = await getQuizEn();
