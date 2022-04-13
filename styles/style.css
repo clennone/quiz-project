@@ -124,13 +124,6 @@ img{
     margin: auto;
 }
 
-.logo{
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    width: 50%;
-}
-
 .user-data{
     border-radius: 10px;
     padding: .8rem;
