@@ -220,7 +220,7 @@ function validateAnswer() {
             }
             currentQuiz++;
             if(currentQuiz < dataEnLenght){
-                setTimeout( ()=> { loadQuizSp() },1300 )  
+                setTimeout( ()=> { loadQuizEn() },1300 )  
             } else{
                 quizBox.classList.add('hide')
                 console.log(player)
