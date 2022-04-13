@@ -1,3 +1,5 @@
+import { getCountry } from "./JS/getCountry.js";
+
 // user variables
 const userBox = document.querySelector('#user');
 const userName = document.querySelector('#user-name');
@@ -14,36 +16,53 @@ const textC = document.querySelector('.text_c');
 const textD = document.querySelector('.text_d');
 const btnQuiz = document.querySelector('#btn-quiz');
 
-const resp = await fetch('./JS/spQuiz.json');
-const data = await resp.json();
-const dataQuiz = await data.Quiz
+//lenguage variables
+const boxLng = document.querySelector('#language');
+const btnSp = document.querySelector('#btn-sp');
+const btnEn = document.querySelector('#btn-en');
 
-console.log(data)
+let quiz = await fetch('./JSON/spQuiz.json');
+let data = await quiz.json();
+const spQuiz = data.Quiz;
+
+quiz = await fetch('./JSON/enQuiz.json');
+data = await quiz.json();
+const enQuiz = data.Quiz;
 
 let currentQuiz = 0;
 
+console.log(spQuiz)
+console.log(enQuiz)
+
 //User creator
-function User(name,age){
-    this.name = name;
-    this.age = age;
-    this.points = 0;
+const player = {
+    name : '',
+    age : '',
+    points : 0
 };
-
-let newUser = new User()
-
 
 eventListeners();
 
 function eventListeners() {
     //when app start
     document.addEventListener('DOMContentLoaded', startApp);
-
+    
     //validate fields are full
     userName.addEventListener('blur', validateFields);
     userAge.addEventListener('blur', validateFields);
 
-    
-    btnUser.addEventListener('click', loadQuiz);
+    //INITIAL BTN EVENTS
+    btnUser.addEventListener('click', getPlayer);
+
+    //validate lenguage
+    btnSp.addEventListener('click',() =>{
+        loadQuiz(spQuiz)
+    } );
+    btnEn.addEventListener('click',()=>{
+        loadQuiz(enQuiz)
+    });
+
+
     btnQuiz.addEventListener('click',validateAnswer);
 };
 
@@ -54,22 +73,11 @@ function startApp(){
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity')
 };
-//show error in a p element
-function showError(){
-    const msgError = document.createElement('p');
-    msgError.innerText = 'Fields needs to complete';
-    msgError.classList.add('error-msg','errors');
-    
-    const errors = document.querySelectorAll('.errors')
-    
-    if(errors.length === 0){
-        userBox.appendChild(msgError)
-    }
-    
-};
+
 //Validate fields
 function validateFields(e) {
 
+    //Validate if fields are complete
     if(e.target.value.length > 0){
         e.target.classList.remove('border-red');
     } else {
@@ -77,32 +85,51 @@ function validateFields(e) {
         showError();
         btnUser.disabled = true;
         btnUser.classList.add('cursor-disabled','opacity')
-    }
+    };
 
+    // validate element created to remove
     const err = document.querySelector('p.error-msg');
+
+    //remove error message and disable btn if everything is ok
     if(userName.value != '' && userAge.value != ''){
         btnUser.disabled = false;
         btnUser.classList.remove('cursor-disabled','opacity');
-        newUser.name = userName.value;
-        newUser.age = userAge.value;
         if(err){
             err.remove();
         }
+    };
+};
+
+function showError(){
+    //Create element for message error
+    const msgError = document.createElement('p');
+    msgError.innerText = 'Fields are required';
+    msgError.classList.add('error-msg','errors');
+
+    // get if ERRORS is already in the DOM and validate
+    const errors = document.querySelectorAll('.errors');
+    if(errors.length === 0){
+        userBox.appendChild(msgError);
     }
- 
+};
+
+function getPlayer() {
+    player.name = userName.value;
+    player.age = userAge.value;
+    console.log(player)
+    userBox.classList.add('hide');
+    boxLng.classList.remove('hide');
 };
 
 //-------------------------//
 //Functions for quiz
 
 //load quiz
-function loadQuiz() {
+function loadQuiz(data) {
 
-
-    
-    // hide user box and show quiz bos
+    //hide user box and show quiz bos
     if(quizBox.classList = 'hide'){
-        userBox.classList.add('hide');
+        boxLng.classList.add('hide');
         quizBox.classList.remove('hide');
     }
 
@@ -110,7 +137,7 @@ function loadQuiz() {
     answers.forEach(el => el.checked = false);
 
     // fill the quiz
-    let quiz = dataQuiz[currentQuiz];
+    let quiz = data[currentQuiz];
     question.innerText = quiz.question;
     textA.innerText = quiz.a;
     textB.innerText = quiz.b;
@@ -129,42 +156,24 @@ function checked() {
     return checkedAnswer;
 }
 
-console.log(dataQuiz.length)
+
 //validate answer and start next quiz
 function validateAnswer() {
     let answer = checked();
 
 
     if(answer){
-        
         if(answer == dataQuiz[currentQuiz].correct){
             newUser.points += 10;
-            console.log(newUser.points)
-            console.log('correct')
         } else {
             console.log('incorrect answer')
         }
-
     } 
     currentQuiz++;
     if(currentQuiz < dataQuiz.length){
         loadQuiz();
     }else{
-        quizBox.classList.add('hide')
-        const finishDiv = document.querySelector('.finish-quiz');
-        alert('terminaste el quiz')
-        finishDiv.classList.remove('hide');
-        const lastDiv = document.createElement('div');
-        let content = `
-            <p style='color:red'> User: ${newUser.name}</p>
-            <p> Age: ${newUser.age}</p>
-            <p> Points: ${newUser.points}</p>
-        `
-
-        lastDiv.innerHTML = content;
-
-        finishDiv.appendChild(lastDiv)
-        
+        quizBox.classList.add('hide');
     }
     
 }
