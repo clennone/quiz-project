@@ -79,6 +79,13 @@ function startApp(){
     userAge.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
+    Swal.fire({
+        title: 'Hi!',
+        text: 'Challenge your mind in this quiz',
+        timer: 5000,
+        showConfirmButton: false,
+        
+    })
 };
 
 //Validate fields
