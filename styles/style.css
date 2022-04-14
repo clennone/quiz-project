@@ -42,7 +42,7 @@ body{
     align-items: center;
     background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
     background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
+	animation: gradient 15s ease infinite;
     
 }
 
@@ -160,7 +160,7 @@ img{
     background-size: 400% 400%;
     -webkit-text-fill-color: transparent; 
     -webkit-background-clip: text; 
-    animation: gradient 10s ease infinite;
+    animation: gradient 15s ease infinite;
 }
 
 .user-data{
@@ -206,13 +206,11 @@ img{
 /*quiz container*/
 
 .question-title{
-    display: flex;
-    justify-content: center;
+    text-align: center;
     font-family: var(--titleFont);
     text-transform: uppercase;
-    font-weight: bold;
     font-style: italic;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     margin-bottom: 2rem;
     background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
     background-size: 400% 400%;
@@ -357,16 +355,12 @@ input[type=number] { -moz-appearance:textfield; }
     font-weight: bold;
     margin: 2rem 0;
     border-bottom: 1px dotted var(--darkColor);
-
-}
-.player-place__input{
-    color: var(--markColor);
-}
-.player-name__input, .player-points__input{
     background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1);
     background-size: 400% 400%;
     -webkit-text-fill-color: transparent; 
     -webkit-background-clip: text; 
-    animation: gradient 10s ease infinite;
+    animation: gradient 15s ease infinite;
 }
+
+
 
