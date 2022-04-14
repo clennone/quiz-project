@@ -121,7 +121,6 @@ img{
     text-transform: uppercase;
     background: #65DBC3;
     background: -webkit-linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
-    background: -moz-linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
     background: linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

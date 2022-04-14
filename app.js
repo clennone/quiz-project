@@ -24,11 +24,7 @@ const qCounter = document.querySelector('.question-counter');
 let currentQuiz = 0;
 let counter = 1;
 
-//User creator
-const player = {
-    name : String,
-    points : Number,
-}
+
 
 eventListeners();
 
