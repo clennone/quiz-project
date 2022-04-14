@@ -1,0 +1,25 @@
+/* Mobile phones */
+@media (max-height: 375px){
+    .container{
+        position: absolute;
+    }
+    .box{
+        position: absolute;
+        top: 5%;
+    }
+}
+
+@media (max-width: 480px){
+    .user-title{
+        font-size: 2.2rem;
+    }
+    .box{
+        top: 20%;
+        right: 3%;
+        left: 3%;
+    }
+
+    .box-question{
+        top: 10%;
+    }
+}

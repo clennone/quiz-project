@@ -77,11 +77,18 @@ img{
 
 /*box container*/
 .box{
-    margin: 20vh 20vw;
+    position: fixed;
     background-image: linear-gradient(to right, #284c48, #2c605b, #307570, #318b85, #31a19b, #2ea6a0, #2aaca5, #26b1aa, #21a69f, #1b9c94, #159189, #0f877f);
     padding: 5rem;
     border-radius: 40px;
     transition: linear 1s;
+    top: 20%;
+    right: 25%;
+    left: 25%;
+}
+
+.box-question{
+    top:12%;
 }
 
 .fade-in {
@@ -119,13 +126,11 @@ img{
     align-items: center;
     text-transform: uppercase;
     margin-bottom: 2rem;
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     background: linear-gradient(90deg, #ff0000, #ffff00, #09ed6c, #0033ff, #00ffee, #ff0000);
     background-size: 400%;
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-    -moz-text-fill-color: transparent;
-    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
     animation: animate 15s linear infinite;
 }
 
@@ -181,17 +186,7 @@ img{
 
 
 
-@media (max-width: 728px){
-    .box{
-        margin: 60px 20px;
-    }
-    .box-phone{
-        margin: 130px 20px;
-    }
-    .user-title{
-        font-size: 2.3rem;
-    }
-}
+
 
 .btn-icon{
     width: 20px;
