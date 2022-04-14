@@ -78,7 +78,6 @@ img{
 /*box container*/
 .box{
     margin: 20vh 20vw;
-    /* background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12); */
     background-image: linear-gradient(to right, #284c48, #2c605b, #307570, #318b85, #31a19b, #2ea6a0, #2aaca5, #26b1aa, #21a69f, #1b9c94, #159189, #0f877f);
     padding: 5rem;
     border-radius: 40px;
@@ -119,13 +118,22 @@ img{
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    background: #65DBC3;
-    background: -webkit-linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
-    background: linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     margin-bottom: 2rem;
     font-size: 2.8rem;
+    background: linear-gradient(90deg, #ff0000, #ffff00, #09ed6c, #0033ff, #00ffee, #ff0000);
+    background-size: 400%;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    animation: animate 15s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
 }
 
 .user-logo{
@@ -357,5 +365,3 @@ input[type=number] { -moz-appearance:textfield; }
     -webkit-text-fill-color: transparent;
     font-weight: bold;    
 }
-
-
