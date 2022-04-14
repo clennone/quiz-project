@@ -124,6 +124,8 @@ img{
     background-size: 400%;
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    -moz-text-fill-color: transparent;
+    -moz-background-clip: text;
     animation: animate 15s linear infinite;
 }
 
