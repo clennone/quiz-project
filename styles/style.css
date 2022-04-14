@@ -123,15 +123,24 @@ img{
 .user-title{
     display: flex;
     justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
+    align-items:baseline;
     margin-bottom: 2rem;
+}
+
+.user-title__name{
+    text-transform: uppercase;
     font-size: 3.2rem;
     background: linear-gradient(90deg, #ff0000, #ffff00, #09ed6c, #0033ff, #00ffee, #ff0000);
     background-size: 400%;
     -webkit-text-fill-color: transparent; 
     -webkit-background-clip: text; 
     animation: animate 15s linear infinite;
+
+}
+
+.user-logo{
+    margin-top: ;
+    width: 35px;
 }
 
 @keyframes animate{
@@ -143,9 +152,7 @@ img{
     }
 }
 
-.user-logo{
-    width: 40px;
-}
+
 
 
 .user-data{
