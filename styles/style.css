@@ -49,6 +49,10 @@ ul li{
 
 }
 
+img{
+    width: 100%;
+}
+
 .border-red{
     border-color: red;
 }
@@ -115,13 +119,20 @@ ul li{
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    color: var(--lightColor);
-    margin-bottom: 4rem;
+    background: #65DBC3;
+    background: -webkit-linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
+    background: -moz-linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
+    background: linear-gradient(to right, #65DBC3 38%, #FFF56E 53%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 2rem;
+    font-size: 2.8rem;
 }
 
-img{
-    max-width: 100%;
+.user-logo{
+    width: 40px;
 }
+
 
 .user-data{
     border-radius: 10px;
@@ -135,6 +146,7 @@ img{
 .button-user{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 4rem;
 }
 
@@ -167,6 +179,13 @@ img{
     .box-phone{
         margin: 130px 20px;
     }
+    .user-title{
+        font-size: 2.3rem;
+    }
+}
+
+.btn-icon{
+    width: 20px;
 }
 
 /*quiz container*/
@@ -279,3 +298,65 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=number] { -moz-appearance:textfield; }
+
+.player-box{
+    display: grid;
+    grid-template-areas: "place name name points";
+    grid-template-columns: 30px auto;
+    background-color: var(--lightColor);
+    padding: 1.5rem;
+    border-radius: 20px;
+    border-bottom: 1px dotted var(--darkColor);
+}
+
+.player-place{
+    grid-area: place
+}
+
+.player-name{
+    grid-area: name;    
+    border-right: 1px dotted var(--darkColor);
+    padding-right: 1rem;
+}
+
+.player-points{
+    grid-area: points;
+    margin-left: 1rem;
+}
+
+.player-place__title, .player-name__title, .player-points__title{
+    border-bottom: 1px dotted var(--darkColor);
+    margin-bottom: 1.5rem;
+}
+
+.player-place__input,.player-name__input, .player-points__input{
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 2rem 0;
+    border-bottom: 1px dotted var(--darkColor);
+
+}
+.player-place__input{
+    color: var(--markColor);
+}
+.player-name__input{
+    background: #55DBB3;
+    background: -webkit-linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
+    background: -moz-linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
+    background: linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.player-points__input{
+    background: #CCDB69;
+    background: -webkit-linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
+    background: -moz-linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
+    background: linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;    
+}
+
+

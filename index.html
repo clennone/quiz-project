@@ -14,24 +14,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="fade-in" id="user">
+        <div class="fade-in hide" id="user">
             <div class="box box-phone">
-                <!-- <h2 class="user-title" id="user-player">Brain Your Day</h2> -->
-                <div class="logo">
-                    <img class="img-title" src="./IMG/logo.png" alt="brain logo">
-                </div>
+                <h2 class="user-title" id="user-player"><img src="https://visualpharm.com/assets/604/Brain-595b40b65ba036ed117d432b.svg" alt="Brain Logo" class="user-logo">Brain Your Day<img src="https://visualpharm.com/assets/801/Reflector%20Bulb-595b40b85ba036ed117da920.svg" alt="Bulb logo" class="user-logo">  </h2>
                 <ul>
                     <li>
                         <input type="text" placeholder="Name" class="user-data" id="user-name">
                     </li>
                 </ul>
-                <ul>
-                    <li>
-                        <input type="number" placeholder="Age" class="user-data" id="user-age" min="1" max="100" required>
-                    </li>
-                </ul>
                 <div class="button-user">
                     <button class="btn-style" id="btn-user" type="submit">Start Quiz</button>
+                </div>
+                <div class="button-user">
+                    <button class="btn-style" id="btn-user" type="submit">Score Ranking<img class="btn-icon" src="https://visualpharm.com/assets/534/Crown-595b40b65ba036ed117d3eac.svg" alt="crown ranking">
+                    </button>
                 </div>
             </div>
         </div>
@@ -86,6 +82,31 @@
                 </div>
                 <div class="button-user">
                     <button class="btn-style" id="btn-quiz">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-in" id="quiz">
+            <div class="box fade-in">
+                <div class="player-box">
+                    <div class="player-place">
+                        <h3 class="player-place__title">#</h3>
+                        <p class="player-place__input">1.</p>
+                       
+                    </div>
+                    <div class="player-name">
+                        <h3 class="player-name__title">Name:</h3>
+                        <p class="player-name__input">chris</p>
+
+                    </div>
+                    <div class="player-points">
+                        <h3 class="player-points__title">Points:</h3>
+                        <p class="player-points__input">100 PTS</p>
+
+                    </div>
+                </div>
+                <div class="button-user">
+                    <button class="btn-style" id="btn-again">Play Again?</button>
                 </div>
             </div>
         </div>

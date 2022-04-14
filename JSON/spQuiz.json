@@ -2,7 +2,7 @@
     "Quiz" : [
         {
             "question": "¿Cuáles son los tipos de sabores primarios?",
-            "a": "Dulce, Amargo, Ácido, Salado, Umami",
+            "a": "Dulce, Amargo, Ácido, Salado y Umami",
             "b": "Amargo, Dulce y Salado",
             "c": "Salado, Dulce, Ácido",
             "d": "Dulce y Amargo",
@@ -25,7 +25,7 @@
             "correct": "c"
         },
         {
-            "question": "¿Qué cantidad de huesos en el cuerpo humano?",
+            "question": "¿Qué cantidad de huesos hay en el cuerpo humano?",
             "a": "201",
             "b": "204",
             "c": "200",

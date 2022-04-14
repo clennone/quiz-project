@@ -1,7 +1,6 @@
 // user variables
 const userBox = document.querySelector('#user');
 const userName = document.querySelector('#user-name');
-const userAge = document.querySelector('#user-age');
 const btnUser = document.querySelector('#btn-user');
 
 //quiz variables
@@ -28,8 +27,7 @@ let counter = 1;
 //User creator
 const player = {
     name : String,
-    age : String,
-    points : Number
+    points : Number,
 }
 
 eventListeners();
@@ -42,7 +40,6 @@ function eventListeners() {
     
     //validate fields are full
     userName.addEventListener('blur', validateFields);
-    userAge.addEventListener('blur', validateFields);
 
     //INITIAL BTN EVENTS
     btnUser.addEventListener('click', getPlayer);
@@ -51,9 +48,15 @@ function eventListeners() {
     btnSp.addEventListener('click',activeSp); 
     btnSp.addEventListener('click', () => {
         Swal.fire({
-            title: 'Prepara el cerebro',
-            timer: 4000,
-            showConfirmButton: false,
+          title: 'Prepara la mente...',
+          html: 'para ser el mejor!!',
+          timer: 4000,
+          timerProgressBar: true,
+          allowOutsideClick: false,
+          icon: 'info',
+          didOpen: () => {
+            Swal.showLoading()
+          }
         })
         setTimeout( ()=> { loadQuizSp() },4000 ) 
     }); 
@@ -61,10 +64,16 @@ function eventListeners() {
     btnEn.addEventListener('click', activeEn);   
     btnEn.addEventListener('click', () => {
         Swal.fire({
-            title: 'Prepare your brain',
+            title: 'Prepare your mind...',
+            html: 'to be the best!!',
             timer: 4000,
-            showConfirmButton: false,
-        })
+            timerProgressBar: true,
+            allowOutsideClick: false,
+            icon: 'info',
+            didOpen: () => {
+              Swal.showLoading()
+            }
+          })
         setTimeout( ()=> { loadQuizEn() },4000 ) 
     }); 
 
@@ -77,15 +86,8 @@ function eventListeners() {
 //Functions for USER BOX
 function startApp(){
     userName.value = '';
-    userAge.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
-    // Swal.fire({
-    //     title: 'Hi!',
-    //     text: 'Challenge your mind in this quiz',
-    //     timer: 5000,
-    //     showConfirmButton: false,
-    // })
 };
 
 //Validate fields
@@ -105,7 +107,7 @@ function validateFields(e) {
     const err = document.querySelector('p.error-msg');
 
     //remove error message and disable btn if everything is ok
-    if(userName.value !== '' && userAge.value !== ''){
+    if(userName.value !== ''){
         btnUser.disabled = false;
         btnUser.classList.remove('cursor-disabled','opacity');
         if(err){
@@ -117,7 +119,7 @@ function validateFields(e) {
 function showError(){
     //Create element for message error
     const msgError = document.createElement('p');
-    msgError.innerText = 'Fields are required';
+    msgError.innerText = 'Name are required';
     msgError.classList.add('error-msg','errors');
 
     // get if ERRORS is already in the DOM and validate
@@ -129,7 +131,6 @@ function showError(){
 
 function getPlayer() {
     player.name = userName.value;
-    player.age = userAge.value;
     player.points = 0;
     console.log(player)
     userBox.classList.add('hide');
