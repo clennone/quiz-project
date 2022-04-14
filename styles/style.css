@@ -1,5 +1,6 @@
 :root{
     --principalFont: 'Roboto', sans-serif;
+    --titleFont: 'Barlow', sans-serif;
     --bckgColor: #000022;
     --boxColor: #001242;
     --highlightColor: #0094C6;
@@ -34,10 +35,29 @@ html {
 }
 
 body{
+	height: 100vh;
     font-size: 16px;
     font-family: var(--principalFont);
-    background-image: url('../IMG/bckg1.jpg');
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
+    background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+    
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
 
 ul{
     padding: 0;
@@ -80,11 +100,13 @@ img{
     position: fixed;
     background-image: linear-gradient(to right, #284c48, #2c605b, #307570, #318b85, #31a19b, #2ea6a0, #2aaca5, #26b1aa, #21a69f, #1b9c94, #159189, #0f877f);
     padding: 5rem;
-    border-radius: 40px;
+    border-radius: 20px;
     transition: linear 1s;
     top: 20%;
     right: 25%;
     left: 25%;
+    box-shadow: -7px 8px 27px 3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -7px 8px 27px 3px rgba(0,0,0,0.75);
 }
 
 .box-question{
@@ -128,28 +150,18 @@ img{
 }
 
 .user-title__name{
+    text-align: center;
     text-transform: uppercase;
-    font-size: 3.2rem;
-    background: linear-gradient(90deg, #ff0000, #ffff00, #09ed6c, #0033ff, #00ffee, #ff0000);
-    background-size: 400%;
+    font-family: var(--titleFont);
+    font-style: italic;
+    font-weight: bold;
+    font-size: 3.5rem;
+    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
+    background-size: 400% 400%;
     -webkit-text-fill-color: transparent; 
     -webkit-background-clip: text; 
-    animation: animate 15s linear infinite;
-
+    animation: gradient 10s ease infinite;
 }
-
-
-@keyframes animate{
-    0%{
-        background-position: 0%;
-    }
-    100%{
-        background-position: 400%;
-    }
-}
-
-
-
 
 .user-data{
     border-radius: 10px;
@@ -187,10 +199,6 @@ img{
     color: var(--darkColor);
 }
 
-
-
-
-
 .btn-icon{
     width: 20px;
 }
@@ -200,12 +208,19 @@ img{
 .question-title{
     display: flex;
     justify-content: center;
+    font-family: var(--titleFont);
     text-transform: uppercase;
-    color: var(--lightColor);
     font-weight: bold;
-    font-size: 2rem;
+    font-style: italic;
+    font-size: 2.5rem;
     margin-bottom: 2rem;
+    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
+    background-size: 400% 400%;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    animation: gradient 10s ease infinite;
 }
+
 
 .answer-label {
     display: flex;
@@ -347,21 +362,11 @@ input[type=number] { -moz-appearance:textfield; }
 .player-place__input{
     color: var(--markColor);
 }
-.player-name__input{
-    background: #55DBB3;
-    background: -webkit-linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
-    background: -moz-linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
-    background: linear-gradient(to right, #55DBB3 1%, #FF1717 21%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.player-name__input, .player-points__input{
+    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1);
+    background-size: 400% 400%;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    animation: gradient 10s ease infinite;
 }
 
-.player-points__input{
-    background: #CCDB69;
-    background: -webkit-linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
-    background: -moz-linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
-    background: linear-gradient(to right, #CCDB69 3%, #FF1717 58%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;    
-}
