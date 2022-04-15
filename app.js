@@ -1,7 +1,10 @@
+import { player, playerBox, showPlayers, addPlayerLocal, setPlayer, getPlayer } from "./JS/player.js";
 // user variables
+const box = document.querySelector('.box-user');
 const userBox = document.querySelector('#user');
 const userName = document.querySelector('#user-name');
 const btnUser = document.querySelector('#btn-user');
+const btnScore = document.querySelector('#btn-score')
 
 //quiz variables
 const quizBox = document.querySelector('#quiz')
@@ -115,23 +118,16 @@ function validateFields(e) {
 function showError(){
     //Create element for message error
     const msgError = document.createElement('p');
-    msgError.innerText = 'Name are required';
+    msgError.innerText = 'Name required';
     msgError.classList.add('error-msg','errors');
 
     // get if ERRORS is already in the DOM and validate
     const errors = document.querySelectorAll('.errors');
     if(errors.length === 0){
-        userBox.appendChild(msgError);
+        box.appendChild(msgError);
     }
 };
 
-function getPlayer() {
-    player.name = userName.value;
-    player.points = 0;
-    console.log(player)
-    userBox.classList.add('hide');
-    boxLng.classList.remove('hide');
-};
 
 //-------------------------//
 //Functions for quiz
@@ -207,7 +203,9 @@ function validateAnswer() {
                 },1200 )  
             } else{
                 quizBox.classList.add('hide')
-                console.log(player)
+                playerBox.classList.remove('hide')
+                showPlayers();
+                // setPlayer();
             }
 
         } else {
@@ -240,7 +238,9 @@ function validateAnswer() {
                 },1200 )  
             } else{
                 quizBox.classList.add('hide')
-                console.log(player)
+                playerBox.classList.remove('hide')
+                showPlayers();
+                // setPlayer();
             }
         }
         
@@ -292,3 +292,5 @@ const dataSp = await getQuizSp();
 const dataEn = await getQuizEn();
 const dataSpLenght = dataSp.length
 const dataEnLenght = dataEn.length
+
+export {userBox, boxLng, userName}

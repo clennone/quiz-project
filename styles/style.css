@@ -65,10 +65,11 @@ img{
 }
 
 .error-msg{
+    margin: 2rem 0 0 0;
     color: red;
     text-align: center;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .opacity{
