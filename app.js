@@ -22,6 +22,7 @@ const boxLng = document.querySelector('#language');
 const btnSp = document.querySelector('#btn-sp');
 const btnEn = document.querySelector('#btn-en');
 
+const titleBox = document.querySelector('#title-box');
 const qPoints = document.querySelector('.question-points');
 const qCounter = document.querySelector('.question-counter');
 
@@ -129,7 +130,6 @@ function startApp(){
 };
 
 function showIntro(){
-    const titleBox = document.querySelector('#title-box');
     titleBox.classList.remove('hide');
 
     setTimeout(()=>{
