@@ -123,18 +123,14 @@ function eventListeners() {
 
 //Functions for USER BOX
 function startApp(){
-    showIntro();
-    userName.value = '';
-    btnUser.disabled = true;
-    btnUser.classList.add('cursor-disabled','opacity');
-};
-
-function showIntro(){
     setTimeout(()=>{
         titleBox.classList.add('hide');
         userBox.classList.remove('hide');
+        userName.value = '';
+        btnUser.disabled = true;
+        btnUser.classList.add('cursor-disabled','opacity');
     },4000)
-}
+};
 
 //Validate fields
 function validateFields(e) {
