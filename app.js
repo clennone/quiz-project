@@ -27,12 +27,7 @@ const qCounter = document.querySelector('.question-counter');
 let currentQuiz = 0;
 let counter = 1;
 
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'center',
-    showConfirmButton: false,
-    timer: 1000,
-  })
+
 
 
 eventListeners();
@@ -333,7 +328,12 @@ async function getQuizEn() {
         return quiz.Quiz
 }
 
-
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 1000,
+  })
 
 // DATA ON AJAX
 const dataSp = await getQuizSp();
