@@ -43,7 +43,12 @@ eventListeners();
 function eventListeners() {
 
     //when app start
-    document.addEventListener('DOMContentLoaded', startApp);
+    document.addEventListener('DOMContentLoaded', () => {
+    
+        startApp();
+        showTitle();
+    
+    });
     
     //validate fields are full
     userName.addEventListener('blur', validateFields);
@@ -123,11 +128,12 @@ function eventListeners() {
 
 //Functions for USER BOX
 function startApp(){
-
     userName.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
+};
 
+function showTitle(){
     const div = document.createElement('div');
     const container = document.querySelector('.container');
     div.classList.add('fade-in');
@@ -141,12 +147,13 @@ function startApp(){
                     </div>`
 
     container.appendChild(div)
+
     setTimeout(()=>{
         div.remove();
         userBox.classList.remove('hide');
     },3000)
 
-};
+}
 
 //Validate fields
 function validateFields(e) {
