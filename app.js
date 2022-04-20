@@ -131,9 +131,6 @@ function startApp(){
 function showIntro(){
     const titleBox = document.querySelector('#title-box');
     titleBox.classList.remove('hide');
-    setTimeout(()=>{
-        titleBox.classList.add('hidden');
-    },3000)
 
     setTimeout(()=>{
         titleBox.classList.add('hide');
