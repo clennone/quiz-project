@@ -1,4 +1,5 @@
-import { player, playerBox, showPlayers, addPlayerLocal, setPlayer, getPlayer } from "./JS/player.js";
+import { player, playerBox, showPlayers, getPlayer } from "./JS/player.js";
+
 // user variables
 const box = document.querySelector('.box-user');
 const userBox = document.querySelector('#user');
@@ -27,6 +28,12 @@ const qCounter = document.querySelector('.question-counter');
 let currentQuiz = 0;
 let counter = 1;
 
+const Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 1000,
+  })
 
 
 eventListeners();
@@ -47,9 +54,16 @@ function eventListeners() {
     btnSp.addEventListener('click',activeSp); 
     btnSp.addEventListener('click', () => {
         Swal.fire({
-          title: 'Prepara la mente...',
-          html: 'para ser el mejor!!',
-          timer: 4000,
+          title: 'PREPARA LA MENTE...',
+          html: `<h3>10 PREGUNTAS</h3>
+                 <p>Reglas:</p>
+                 <ul>
+                    <ol>1. Cada pregunta vale 10 puntos</ol>
+                    <ol>2. El puntaje máximo es de 100 PTS</ol>
+                    <ol>3. No es posible retroceder o salir del quiz</ol>
+                    <ol>4. No hagas trampa y utiliza la MENTE!</ol>
+                 </ul>`,
+          timer: 10500,
           timerProgressBar: true,
           allowOutsideClick: false,
           icon: 'info',
@@ -57,15 +71,31 @@ function eventListeners() {
             Swal.showLoading()
           }
         })
-        setTimeout( ()=> { loadQuizSp() },4000 ) 
+        setTimeout( () => {
+            Swal.fire({
+                title: '¡COMIENZA!',
+                timer: 1000,
+                allowOutsideClick: false,
+                icon: 'sucess',
+                showConfirmButton: false,
+              })
+        },10500)
+        setTimeout( ()=> { loadQuizSp() },11550 ) 
     }); 
 
     btnEn.addEventListener('click', activeEn);   
     btnEn.addEventListener('click', () => {
         Swal.fire({
-            title: 'Prepare your mind...',
-            html: 'to be the best!!',
-            timer: 4000,
+            title: 'PREPARE YOUR MIND...',
+            html: `<h3>10 QUESTIONS</h3>
+            <p>Rules:</p>
+            <ul>
+               <ol>1. Each question worth 10 points</ol>
+               <ol>2. Maximum score is 100 PTS</ol>
+               <ol>3. It's not possible to go back or quit from the quiz</ol>
+               <ol>4. Don't cheat and use your MIND!</ol>
+            </ul>`,
+            timer: 10500,
             timerProgressBar: true,
             allowOutsideClick: false,
             icon: 'info',
@@ -73,10 +103,18 @@ function eventListeners() {
               Swal.showLoading()
             }
           })
-        setTimeout( ()=> { loadQuizEn() },4000 ) 
+        setTimeout( () => {
+            Swal.fire({
+                title: 'START!',
+                timer: 1000,
+                allowOutsideClick: false,
+                icon: 'sucess',
+                showConfirmButton: false,
+              })
+        },10500)
+
+        setTimeout( ()=> { loadQuizEn() },11550 ) 
     }); 
-
-
     btnQuiz.addEventListener('click',validateAnswer);
 };
 
@@ -84,10 +122,24 @@ function eventListeners() {
 
 //Functions for USER BOX
 function startApp(){
+    showIntro();
     userName.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
 };
+
+function showIntro(){
+    const titleBox = document.querySelector('#title-box');
+    titleBox.classList.remove('hide');
+    setTimeout(()=>{
+        titleBox.classList.add('hidden');
+    },3000)
+
+    setTimeout(()=>{
+        titleBox.classList.add('hide');
+        userBox.classList.remove('hide');
+    },4000)
+}
 
 //Validate fields
 function validateFields(e) {
@@ -177,19 +229,14 @@ function validateAnswer() {
         if(btnSp.classList.contains('active')){
             if(answer == dataSp[currentQuiz].correct){
                 player.points += 10;
-                Swal.fire({
-                    title: 'Correcto!',
-                    timer: 1000,
-                    icon: 'success',
-                    showConfirmButton: false,
-                    
+                Toast.fire({
+                icon: 'success',
+                title: 'Correcto'
                 })
             } else {
-                Swal.fire({
-                    title: 'Incorrecto!',
-                    timer: 1000,
+                Toast.fire({
                     icon: 'error',
-                    showConfirmButton: false,
+                    title: 'Incorrecto'
                 })
             }
             counter++;
@@ -205,28 +252,21 @@ function validateAnswer() {
                 quizBox.classList.add('hide')
                 playerBox.classList.remove('hide')
                 showPlayers();
-                // setPlayer();
             }
 
         } else {
             if(answer == dataEn[currentQuiz].correct){
                 player.points += 10;
-                Swal.fire({
-                    title: 'Correct!',
-                    timer: 1000,
+                Toast.fire({
                     icon: 'success',
-                    showConfirmButton: false,
-                    
+                    title: 'Correct!'
                 })
             } else {
-                Swal.fire({
-                    title: 'Incorrect!',
-                    timer: 1000,
+                Toast.fire({
                     icon: 'error',
-                    showConfirmButton: false,
+                    title: 'Incorrect!'
                 })
             }
-
             counter++;
             currentQuiz++;
             
@@ -240,33 +280,27 @@ function validateAnswer() {
                 quizBox.classList.add('hide')
                 playerBox.classList.remove('hide')
                 showPlayers();
-                // setPlayer();
             }
         }
-        
-
     } else {
         Swal.fire({
             title: 'Select an answer!',
             icon: 'error',
         })
     }
-
-
-    
-}
+};
 
 function activeSp() {
     btnSp.classList.add('active');
     boxLng.classList.add('hide');
-    setTimeout( () => { quizBox.classList.remove('hide') },4000);
+    setTimeout( () => { quizBox.classList.remove('hide') },11550);
     qPoints.textContent = `Puntos: ${player.points}`;
     qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
 };
 
 function activeEn() {
     boxLng.classList.add('hide');
-    setTimeout( () => { quizBox.classList.remove('hide') },4000);
+    setTimeout( () => { quizBox.classList.remove('hide') },11550);
     qPoints.textContent = `Points: ${player.points}`;
     qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
 };
@@ -288,9 +322,14 @@ async function getQuizEn() {
 }
 
 
+
+// DATA ON AJAX
 const dataSp = await getQuizSp();
 const dataEn = await getQuizEn();
 const dataSpLenght = dataSp.length
 const dataEnLenght = dataEn.length
+
+
+
 
 export {userBox, boxLng, userName}

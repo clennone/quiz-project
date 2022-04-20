@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brain your day</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/responsive.css">
@@ -15,7 +16,18 @@
 </head>
 <body>
     <div class="container">
-        <div class="fade-in" id="user">
+
+        <div class="fade-in hide" id="title-box">
+            <div class="title">
+                <h1 class="animate__animated animate__backInLeft">
+                    <span class="title_name user-title__name">Brain</span> <br>
+                    <span class="title_name user-title__name">Your</span> <br>
+                    <span class="title_name user-title__name">Day</span> <br>
+                </h1>
+            </div>
+        </div>
+
+        <div class="fade-in hide" id="user">
             <div class="box box-user">
                 <div class="user-title">
                     <h2 class="user-title__name" id="user-player">Brain Your Day</h2>
@@ -28,10 +40,10 @@
                 <div class="button-user">
                     <button class="btn-style" id="btn-user" type="submit">Start Quiz</button>
                 </div>
-                <div class="button-user">
+                <!-- <div class="button-user">
                     <button class="btn-style" id="btn-score" type="submit">Score Ranking<img class="btn-icon" src="https://visualpharm.com/assets/534/Crown-595b40b65ba036ed117d3eac.svg" alt="crown ranking">
                     </button>
-                </div>
+                </div> -->
             </div>
         </div>
 

@@ -13,12 +13,7 @@ const player = {
     points : Number,
 }
 
-let playersArray = [];
 
-function setPlayer () {
-
-    console.log(players)
-}
 
 function showPlayers() {
     let place = document.createElement('p')
@@ -39,33 +34,34 @@ function showPlayers() {
 
 }
 
-function addPlayerLocal(){
-    // let players = JSON.parse(localStorage.getItem('players'));
-    // if(players === null) {
-    //     localStorage.setItem('players',JSON.stringify(player));
-    //     console.log(player);
-    // } else {
-    //     let data = JSON.parse(localStorage.getItem('players'))
-    //     playersArray = [data, player];
-        
-    //     localStorage.setItem('players',JSON.stringify())
-    // }
-    
-
-
-}
 
 function getPlayer() {
     player.name = userName.value;
     player.points = 0;
+
+    const div = document.createElement('div');
+
+
+    div.classList.add('fade-in');
+    div.innerHTML = `<div id="welcome">
+                        <h1 class="title_name user-title__name">
+                            Welcome! ${player.name}
+                        </h1>
+                    </div>`;
     userBox.classList.add('hide');
-    boxLng.classList.remove('hide');
+    userBox.insertAdjacentElement('afterend',div)
+
+    setTimeout( () => {
+        div.remove();
+    },3600);
+
+    setTimeout( () => {
+        boxLng.classList.remove('hide');
+    },3700);
 };
 
 export{ 
     player,
-    setPlayer, 
-    addPlayerLocal,
     showPlayers,
     getPlayer,
     playerBox

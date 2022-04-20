@@ -7,6 +7,8 @@
         position: absolute;
         top: 5%;
     }
+
+    
 }
 
 @media (max-width: 480px){
@@ -21,5 +23,15 @@
 
     .box-question{
         top: 10%;
+    }
+    .title{
+        left: 10%;
+        right: 10%;
+        padding: 5rem 4rem;
+        width: auto;
+    }
+
+    .title_name{
+        font-size: 7rem;
     }
 }
