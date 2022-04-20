@@ -312,20 +312,18 @@ function activeEn() {
     qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
 };
 
-async function getQuizSp() {
-    const quiz = await fetch('./JSON/spQuiz.json')
+function getQuizSp() {
+    const quiz =  fetch('./JSON/spQuiz.json')
         .then(res=> res.json())
+        .then(res => res.Quiz)
         .catch(err => console.log(err))
-
-        return quiz.Quiz
 }
 
-async function getQuizEn() {
-    const quiz = await fetch('./JSON/enQuiz.json')
+function getQuizEn() {
+    const quiz =  fetch('./JSON/enQuiz.json')
         .then(res=> res.json())
+        .then(res=> res.Quiz)
         .catch(err => console.log(err))
-
-        return quiz.Quiz
 }
 
 const Toast = Swal.mixin({
@@ -336,10 +334,10 @@ const Toast = Swal.mixin({
   })
 
 // DATA ON AJAX
-const dataSp = await getQuizSp();
-const dataEn = await getQuizEn();
-const dataSpLenght = dataSp.length
-const dataEnLenght = dataEn.length
+const dataSp =  getQuizSp();
+const dataEn =  getQuizEn();
+// const dataSpLenght = dataSp.length
+// const dataEnLenght = dataEn.length
 
 
 
