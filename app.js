@@ -126,12 +126,14 @@ function eventListeners() {
 
 //Functions for USER BOX
 function startApp(){
+    alert('alerta 1')
     userName.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
 };
 
 function showTitle(){
+    alert('alerta 2')
     const div = document.createElement('div');
     const container = document.querySelector('.container');
     div.classList.add('fade-in');
