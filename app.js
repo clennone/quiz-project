@@ -45,8 +45,8 @@ function eventListeners() {
     //when app start
     document.addEventListener('DOMContentLoaded', () => {
     
-        startApp();
         showTitle();
+        startApp();
     
     });
     
