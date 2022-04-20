@@ -5,7 +5,6 @@ const box = document.querySelector('.box-user');
 const userBox = document.querySelector('#user');
 const userName = document.querySelector('#user-name');
 const btnUser = document.querySelector('#btn-user');
-const btnScore = document.querySelector('#btn-score')
 
 //quiz variables
 const quizBox = document.querySelector('#quiz')
@@ -22,7 +21,6 @@ const boxLng = document.querySelector('#language');
 const btnSp = document.querySelector('#btn-sp');
 const btnEn = document.querySelector('#btn-en');
 
-const titleBox = document.querySelector('#title-box');
 const qPoints = document.querySelector('.question-points');
 const qCounter = document.querySelector('.question-counter');
 
@@ -152,7 +150,6 @@ function showTitle(){
         div.remove();
         userBox.classList.remove('hide');
     },3000)
-
 }
 
 //Validate fields
