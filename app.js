@@ -139,7 +139,7 @@ function showTitle(){
     div.classList.add('fade-in');
     div.id = 'title-box';
     div.innerHTML = `<div>
-                        <h1 class="user-title__name">
+                        <h1>
                         Brain<br>
                         Your<br>
                         Day<br>
