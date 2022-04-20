@@ -135,7 +135,6 @@ function showTitle(){
     const div = document.createElement('div');
     const container = document.querySelector('.container');
     div.classList.add('fade-in');
-    div.id = 'title-box';
     div.innerHTML = `<div>
                         <h1>
                         Brain<br>
