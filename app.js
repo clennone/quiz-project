@@ -77,7 +77,7 @@ function eventListeners() {
                 title: '¡COMIENZA!',
                 timer: 1000,
                 allowOutsideClick: false,
-                icon: 'sucess',
+                icon: 'success',
                 showConfirmButton: false,
               })
         },10500)
@@ -109,7 +109,7 @@ function eventListeners() {
                 title: 'START!',
                 timer: 1000,
                 allowOutsideClick: false,
-                icon: 'sucess',
+                icon: 'success',
                 showConfirmButton: false,
               })
         },10500)
@@ -130,8 +130,6 @@ function startApp(){
 };
 
 function showIntro(){
-    titleBox.classList.remove('hide');
-
     setTimeout(()=>{
         titleBox.classList.add('hide');
         userBox.classList.remove('hide');
