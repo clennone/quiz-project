@@ -128,10 +128,23 @@ function startApp(){
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
 
-    // setTimeout(()=>{
-    //     titleBox.classList.add('hide');
-    //     userBox.classList.remove('hide');
-    // },2000)
+    const div = document.createElement('div');
+    const container = document.querySelector('.container');
+    div.classList.add('fade-in');
+    div.id = 'title-box';
+    div.innerHTML = `<div class="title">
+                        <h1 class="user-title__name">
+                        Brain<br>
+                        Your<br>
+                        Day<br>
+                        </h1>
+                    </div>`
+
+    container.appendChild(div)
+    setTimeout(()=>{
+        div.remove();
+        userBox.classList.remove('hide');
+    },3000)
 
 };
 
