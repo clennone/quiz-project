@@ -123,13 +123,16 @@ function eventListeners() {
 
 //Functions for USER BOX
 function startApp(){
+
+    userName.value = '';
+    btnUser.disabled = true;
+    btnUser.classList.add('cursor-disabled','opacity');
+
     setTimeout(()=>{
         titleBox.classList.add('hide');
         userBox.classList.remove('hide');
-        userName.value = '';
-        btnUser.disabled = true;
-        btnUser.classList.add('cursor-disabled','opacity');
-    },4000)
+    },2000)
+
 };
 
 //Validate fields
