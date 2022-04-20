@@ -128,10 +128,10 @@ function startApp(){
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
 
-    setTimeout(()=>{
-        titleBox.classList.add('hide');
-        userBox.classList.remove('hide');
-    },2000)
+    // setTimeout(()=>{
+    //     titleBox.classList.add('hide');
+    //     userBox.classList.remove('hide');
+    // },2000)
 
 };
 
