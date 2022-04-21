@@ -29,19 +29,12 @@ let counter = 1;
 
 
 
-
+showTitle();
+startApp();
 eventListeners();
 
 
 function eventListeners() {
-
-    //when app start
-    document.addEventListener('DOMContentLoaded', () => {
-    
-        showTitle();
-        startApp();
-    
-    });
     
     //validate fields are full
     userName.addEventListener('blur', validateFields);
@@ -312,18 +305,20 @@ function activeEn() {
     qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
 };
 
-function getQuizSp() {
-    const quiz =  fetch('./JSON/spQuiz.json')
+async function getQuizSp() {
+    const quiz =  await fetch('./JSON/spQuiz.json')
         .then(res=> res.json())
-        .then(res => res.Quiz)
         .catch(err => console.log(err))
+
+        return quiz.Quiz
 }
 
-function getQuizEn() {
-    const quiz =  fetch('./JSON/enQuiz.json')
+async function getQuizEn() {
+    const quiz =  await fetch('./JSON/enQuiz.json')
         .then(res=> res.json())
-        .then(res=> res.Quiz)
         .catch(err => console.log(err))
+
+        return quiz.Quiz
 }
 
 const Toast = Swal.mixin({
@@ -334,10 +329,10 @@ const Toast = Swal.mixin({
   })
 
 // DATA ON AJAX
-const dataSp =  getQuizSp();
-const dataEn =  getQuizEn();
-// const dataSpLenght = dataSp.length
-// const dataEnLenght = dataEn.length
+const dataSp =  await getQuizSp();
+const dataEn = await getQuizEn();
+const dataSpLenght = dataSp.length
+const dataEnLenght = dataEn.length
 
 
 
