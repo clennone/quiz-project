@@ -372,35 +372,21 @@ input[type=number] { -moz-appearance:textfield; }
 .title{
     position: fixed;
     top: 25%;
-    left: 15%;
+    left: 25%;
     right: 25%;
     display: inline-block;
     background-color: var(--lightColor);
     padding-left: 4rem;
     width: auto;
+    border-radius: 0 20% 20% 0;
 
 }
+
 
 .title_name{
     text-align: left;
     margin: .5px 0;
     font-size: 10rem;
-    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1, #CFD7C7,#F6F1D1);
-    background-size: 400% 400%;
-    -webkit-text-fill-color: transparent; 
-    -webkit-background-clip: text; 
-    background-clip: text;
-    animation: gradient 15s ease infinite;
-}
-
-#welcome{
-    background-color: rgba(255, 255, 255, 0.491);
-    position: fixed;
-    top: 35%;
-    display: flex;
-    justify-content: center;
-    width: auto;
-    padding: 2.3rem;
 }
 
 
@@ -438,6 +424,18 @@ input[type=number] { -moz-appearance:textfield; }
     }
 
     .title_name{
-        font-size: 7rem;
+        font-size: 5rem;
     }
+}
+
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 1s linear;
+}
+
+.made{
+    margin: 1rem 0 .5rem 0;
+    font-size: 1.2rem;
 }

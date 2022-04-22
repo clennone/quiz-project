@@ -1,4 +1,5 @@
 import { player, playerBox, showPlayers, getPlayer } from "./JS/player.js";
+import { prepareSp , prepareEn, Toast } from "./JS/alertMsg.js"
 
 // user variables
 const box = document.querySelector('.box-user');
@@ -27,9 +28,31 @@ const qCounter = document.querySelector('.question-counter');
 let currentQuiz = 0;
 let counter = 1;
 
+async function getQuizSp() {
+    const quiz =  await fetch('./JSON/spQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
+
+        return quiz.Quiz
+}
+
+async function getQuizEn() {
+    const quiz =  await fetch('./JSON/enQuiz.json')
+        .then(res=> res.json())
+        .catch(err => console.log(err))
+
+        return quiz.Quiz
+}
 
 
-showTitle();
+// DATA ON AJAX
+const dataSp =  await getQuizSp();
+const dataEn = await getQuizEn();
+const dataSpLenght = dataSp.length
+const dataEnLenght = dataEn.length
+
+
+
 startApp();
 eventListeners();
 
@@ -45,101 +68,59 @@ function eventListeners() {
     //validate lenguage
     btnSp.addEventListener('click',activeSp); 
     btnSp.addEventListener('click', () => {
-        Swal.fire({
-          title: 'PREPARA LA MENTE...',
-          html: `<h3>10 PREGUNTAS</h3>
-                 <p>Reglas:</p>
-                 <ul>
-                    <ol>1. Cada pregunta vale 10 puntos</ol>
-                    <ol>2. El puntaje máximo es de 100 PTS</ol>
-                    <ol>3. No es posible retroceder o salir del quiz</ol>
-                    <ol>4. No hagas trampa y utiliza la MENTE!</ol>
-                 </ul>`,
-          timer: 10500,
-          timerProgressBar: true,
-          allowOutsideClick: false,
-          icon: 'info',
-          didOpen: () => {
-            Swal.showLoading()
-          }
-        })
-        setTimeout( () => {
-            Swal.fire({
-                title: '¡COMIENZA!',
-                timer: 1000,
-                allowOutsideClick: false,
-                icon: 'success',
-                showConfirmButton: false,
-              })
-        },10500)
+        prepareSp();
         setTimeout( ()=> { loadQuizSp() },11550 ) 
     }); 
 
     btnEn.addEventListener('click', activeEn);   
     btnEn.addEventListener('click', () => {
-        Swal.fire({
-            title: 'PREPARE YOUR MIND...',
-            html: `<h3>10 QUESTIONS</h3>
-            <p>Rules:</p>
-            <ul>
-               <ol>1. Each question worth 10 points</ol>
-               <ol>2. Maximum score is 100 PTS</ol>
-               <ol>3. It's not possible to go back or quit from the quiz</ol>
-               <ol>4. Don't cheat and use your MIND!</ol>
-            </ul>`,
-            timer: 10500,
-            timerProgressBar: true,
-            allowOutsideClick: false,
-            icon: 'info',
-            didOpen: () => {
-              Swal.showLoading()
-            }
-          })
-        setTimeout( () => {
-            Swal.fire({
-                title: 'START!',
-                timer: 1000,
-                allowOutsideClick: false,
-                icon: 'success',
-                showConfirmButton: false,
-              })
-        },10500)
-
+        prepareEn();
         setTimeout( ()=> { loadQuizEn() },11550 ) 
     }); 
+
+
     btnQuiz.addEventListener('click',validateAnswer);
 };
 
 
 
-//Functions for USER BOX
+// ---------------------------Start Functions -------------------------------------
 function startApp(){
-    userName.value = '';
-    btnUser.disabled = true;
-    btnUser.classList.add('cursor-disabled','opacity');
-};
 
-function showTitle(){
+    //Create enter NAME
     const div = document.createElement('div');
     const container = document.querySelector('.container');
     div.classList.add('fade-in');
     div.innerHTML = `<div class="title">
-                        <h1 class="title_name">
+                        <h1 class="title_name user-title__name">
                         Brain<br>
                         Your<br>
                         Day<br>
                         </h1>
+                        <p class="title_name user-title__name made"> Made by Lennon C. </p>
                     </div>`
-
     container.appendChild(div)
+
+    //Clear all values and disabled cursor
+    userName.value = '';
+    btnUser.disabled = true;
+    btnUser.classList.add('cursor-disabled','opacity');
+
+    //remove and add classes for fade
+    setTimeout(()=>{
+        div.classList.add('hidden');
+    },2500)
 
     setTimeout(()=>{
         div.remove();
         userBox.classList.remove('hide');
-    },3000)
-}
+    },3500)
 
-//Validate fields
+};
+
+
+//-----------------------------Validate fields------------------------------
+
 function validateFields(e) {
 
     //Validate if fields are complete
@@ -179,12 +160,11 @@ function showError(){
 };
 
 
-//-------------------------//
-//Functions for quiz
+//-----------------------------QUIZ FUNCTIONS-----------------------------------//
 
-//load quiz
+//load quiz spanish
 function loadQuizSp() {
-    // remove checked bottons
+    // remove checked bottons from answers const
     answers.forEach(el => el.checked = false);
     // fill the quiz
     let quiz = dataSp[currentQuiz];
@@ -195,6 +175,7 @@ function loadQuizSp() {
     textD.innerText = quiz.d;
 };
 
+//load quiz english
 function loadQuizEn() {
     // remove checked bottons
     answers.forEach(el => el.checked = false);
@@ -244,7 +225,7 @@ function validateAnswer() {
                 setTimeout( ()=> { 
                     qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
                     qPoints.textContent = `Puntos: ${player.points}`;
-                    loadQuizSp() 
+                    loadQuizSp() ;
                 },1200 )  
             } else{
                 quizBox.classList.add('hide')
@@ -302,35 +283,6 @@ function activeEn() {
     qPoints.textContent = `Points: ${player.points}`;
     qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
 };
-
-async function getQuizSp() {
-    const quiz =  await fetch('./JSON/spQuiz.json')
-        .then(res=> res.json())
-        .catch(err => console.log(err))
-
-        return quiz.Quiz
-}
-
-async function getQuizEn() {
-    const quiz =  await fetch('./JSON/enQuiz.json')
-        .then(res=> res.json())
-        .catch(err => console.log(err))
-
-        return quiz.Quiz
-}
-
-const Toast = Swal.mixin({
-    toast: true,
-    position: 'center',
-    showConfirmButton: false,
-    timer: 1000,
-  })
-
-// DATA ON AJAX
-const dataSp =  await getQuizSp();
-const dataEn = await getQuizEn();
-const dataSpLenght = dataSp.length
-const dataEnLenght = dataEn.length
 
 
 

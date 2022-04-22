@@ -13,6 +13,32 @@ const player = {
     points : Number,
 }
 
+function getPlayer() {
+    player.name = userName.value;
+    player.points = 0;
+
+    const div = document.createElement('div');
+
+
+    div.classList.add('fade-in');
+    div.innerHTML = `<div class="title">
+                        <h1 class="title_name user-title__name">
+                            Welcome!<br>
+                            ${player.name}
+                        </h1>
+                    </div>`;
+    userBox.classList.add('hide');
+    userBox.insertAdjacentElement('afterend',div)
+
+    setTimeout( () => {
+        div.classList.add('hidden');
+    },2500);
+
+    setTimeout( () => {
+        div.remove();
+        boxLng.classList.remove('hide');
+    },3500);
+};
 
 
 function showPlayers() {
@@ -35,30 +61,7 @@ function showPlayers() {
 }
 
 
-function getPlayer() {
-    player.name = userName.value;
-    player.points = 0;
 
-    const div = document.createElement('div');
-
-
-    div.classList.add('fade-in');
-    div.innerHTML = `<div id="welcome">
-                        <h1 class="title_name user-title__name">
-                            Welcome! ${player.name}
-                        </h1>
-                    </div>`;
-    userBox.classList.add('hide');
-    userBox.insertAdjacentElement('afterend',div)
-
-    setTimeout( () => {
-        div.remove();
-    },3600);
-
-    setTimeout( () => {
-        boxLng.classList.remove('hide');
-    },3700);
-};
 
 export{ 
     player,
