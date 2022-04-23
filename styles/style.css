@@ -97,7 +97,7 @@ img{
 }
 
 .box-question{
-    height: 80vh;
+    height: auto;
     top:10%;
     bottom: 10%;
 }
