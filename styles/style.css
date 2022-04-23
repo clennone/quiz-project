@@ -97,7 +97,6 @@ img{
 }
 
 .box-question{
-    height: auto;
     top:10%;
     bottom: 10%;
 }
@@ -382,7 +381,6 @@ input[type=number] { -moz-appearance:textfield; }
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
 }
 
 .welcome-h1{
