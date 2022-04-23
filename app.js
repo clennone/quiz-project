@@ -58,7 +58,7 @@ eventListeners();
 
 
 function eventListeners() {
-    
+
     //validate fields are full
     userName.addEventListener('blur', validateFields);
 
@@ -66,17 +66,17 @@ function eventListeners() {
     btnUser.addEventListener('click', getPlayer);
 
     //validate lenguage
-    btnSp.addEventListener('click',activeSp); 
+    btnSp.addEventListener('click',activeSp);
     btnSp.addEventListener('click', () => {
         prepareSp();
-        setTimeout( ()=> { loadQuizSp() },11550 ) 
-    }); 
+        setTimeout( ()=> { loadQuizSp() },11550 )
+    });
 
-    btnEn.addEventListener('click', activeEn);   
+    btnEn.addEventListener('click', activeEn);
     btnEn.addEventListener('click', () => {
         prepareEn();
-        setTimeout( ()=> { loadQuizEn() },11550 ) 
-    }); 
+        setTimeout( ()=> { loadQuizEn() },11550 )
+    });
 
 
     btnQuiz.addEventListener('click',validateAnswer);
@@ -86,36 +86,10 @@ function eventListeners() {
 
 // ---------------------------Start Functions -------------------------------------
 function startApp(){
-
-    //Create enter NAME
-    const div = document.createElement('div');
-    const container = document.querySelector('.container');
-    div.classList.add('fade-in');
-    div.innerHTML = `<div class="welcome intro">
-                        <h1 class="intro-title color-title">
-                            Brain <br>
-                            Your <br>
-                            Day <br>
-                            <p class="intro-madeby"> Made by Lennon C. </p>
-                        </h1> 
-                    </div>`
-    container.appendChild(div)
-
     //Clear all values and disabled cursor
     userName.value = '';
     btnUser.disabled = true;
     btnUser.classList.add('cursor-disabled','opacity');
-
-    //remove and add classes for fade
-    setTimeout(()=>{
-        div.classList.add('hidden');
-    },2500)
-
-    setTimeout(()=>{
-        div.remove();
-        userBox.classList.remove('hide');
-    },3500)
-
 };
 
 
@@ -220,13 +194,13 @@ function validateAnswer() {
             }
             counter++;
             currentQuiz++;
-            
+
             if(currentQuiz < dataSpLenght){
-                setTimeout( ()=> { 
+                setTimeout( ()=> {
                     qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
                     qPoints.textContent = `Puntos: ${player.points}`;
                     loadQuizSp() ;
-                },1200 )  
+                },1200 )
             } else{
                 quizBox.classList.add('hide')
                 playerBox.classList.remove('hide')
@@ -248,13 +222,13 @@ function validateAnswer() {
             }
             counter++;
             currentQuiz++;
-            
+
             if(currentQuiz < dataEnLenght){
-                setTimeout( ()=> { 
+                setTimeout( ()=> {
                     qPoints.textContent = `Points: ${player.points}`;
                     qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
-                    loadQuizEn() 
-                },1200 )  
+                    loadQuizEn()
+                },1200 )
             } else{
                 quizBox.classList.add('hide')
                 playerBox.classList.remove('hide')

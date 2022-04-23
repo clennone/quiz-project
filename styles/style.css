@@ -199,7 +199,7 @@ img{
     font-family: var(--titleFont);
     text-transform: uppercase;
     font-style: italic;
-    font-size: 2.7rem;
+    font-size: 5vw;
     margin-bottom: 2rem;
     background: linear-gradient(-45deg, #70A9A1, #CFD7C7,#F6F1D1);
     background-size: 400% 400%;
@@ -271,7 +271,7 @@ img{
     margin-left: 1.4rem;
     letter-spacing: .1rem;
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 3.2vw;
     font-weight: bold;
     transition: .1s;
 }
@@ -404,26 +404,6 @@ input[type=number] { -moz-appearance:textfield; }
     font-weight: bold;
 }
 
-.intro{
-    flex-direction: column;
-}
-
-.intro-title{
-    padding: 2rem;
-    width: 80%;
-    text-align: left;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 8rem;
-    font-style: italic;
-}
-
-.intro-madeby{
-    text-align: left;
-    font-size: 1rem;
-    text-transform: uppercase;
-    margin-top: 1rem;
-}
 
 .color-title{
     background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1);
