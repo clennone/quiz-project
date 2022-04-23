@@ -92,12 +92,15 @@ img{
     top: 20%;
     right: 25%;
     left: 25%;
+
     box-shadow: -7px 8px 27px 3px rgba(0,0,0,0.75);
     -webkit-box-shadow: -7px 8px 27px 3px rgba(0,0,0,0.75);
 }
 
 .box-question{
-    top:12%;
+    height: 80vh;
+    top:10%;
+    bottom: 10%;
 }
 
 .fade-in {
@@ -369,24 +372,69 @@ input[type=number] { -moz-appearance:textfield; }
 }
 
 
-.title{
-    position: fixed;
-    top: 25%;
-    left: 25%;
-    right: 25%;
-    display: inline-block;
-    background-color: var(--lightColor);
-    padding-left: 4rem;
-    width: auto;
-    border-radius: 0 20% 20% 0;
-
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 2s, opacity 1s linear;
 }
 
 
-.title_name{
+.welcome, .intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.welcome-h1{
+    width: auto;
+}
+
+.welcome-title{
+    font-size: 2rem;
+    color: var(--darkColor);
+}
+
+.welcome-name{
+    color: var(--lightColor);
+    font-size: 4rem;
+    text-shadow: 2px 5px 5px var(--darkColor);
+}
+
+.welcome-title , .welcome-name {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.intro{
+    flex-direction: column;
+}
+
+.intro-title{
+    padding: 2rem;
+    width: 80%;
     text-align: left;
-    margin: .5px 0;
-    font-size: 10rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 8rem;
+    font-style: italic;
+}
+
+.intro-madeby{
+    text-align: left;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.color-title{
+    background: linear-gradient(-45deg, #0B2027, #40798C, #70A9A1);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    animation: gradient 15s ease infinite;
 }
 
 
@@ -398,9 +446,7 @@ input[type=number] { -moz-appearance:textfield; }
     .box{
         position: absolute;
         top: 5%;
-    }
-
-    
+    }   
 }
 
 @media (max-width: 480px){
@@ -426,16 +472,4 @@ input[type=number] { -moz-appearance:textfield; }
     .title_name{
         font-size: 5rem;
     }
-}
-
-
-.hidden {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 2s, opacity 1s linear;
-}
-
-.made{
-    margin: 1rem 0 .5rem 0;
-    font-size: 1.2rem;
 }

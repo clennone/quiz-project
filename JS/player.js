@@ -21,11 +21,13 @@ function getPlayer() {
 
 
     div.classList.add('fade-in');
-    div.innerHTML = `<div class="title">
-                        <h1 class="title_name user-title__name">
-                            Welcome!<br>
-                            ${player.name}
-                        </h1>
+    div.innerHTML = `<div class="welcome">
+                        <div class="welcome-h1">
+                            <h1>
+                                <span class="welcome-title">Welcome!</span></br>
+                                <span class="welcome-name">${player.name}</span>
+                            </h1>
+                        </div>
                     </div>`;
     userBox.classList.add('hide');
     userBox.insertAdjacentElement('afterend',div)

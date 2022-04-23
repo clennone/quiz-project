@@ -91,13 +91,13 @@ function startApp(){
     const div = document.createElement('div');
     const container = document.querySelector('.container');
     div.classList.add('fade-in');
-    div.innerHTML = `<div class="title">
-                        <h1 class="title_name user-title__name">
-                        Brain<br>
-                        Your<br>
-                        Day<br>
-                        </h1>
-                        <p class="title_name user-title__name made"> Made by Lennon C. </p>
+    div.innerHTML = `<div class="welcome intro">
+                        <h1 class="intro-title color-title">
+                            Brain <br>
+                            Your <br>
+                            Day <br>
+                            <p class="intro-madeby"> Made by Lennon C. </p>
+                        </h1> 
                     </div>`
     container.appendChild(div)
 
