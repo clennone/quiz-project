@@ -194,18 +194,7 @@ function validateAnswer() {
             }
             counter++;
             currentQuiz++;
-
-            if(currentQuiz < dataSpLenght){
-                setTimeout( ()=> {
-                    qCounter.textContent = `Pregunta ${counter} de ${dataSpLenght}`
-                    qPoints.textContent = `Puntos: ${player.points}`;
-                    loadQuizSp() ;
-                },1200 )
-            } else{
-                quizBox.classList.add('hide')
-                playerBox.classList.remove('hide')
-                showPlayers();
-            }
+            countQuiz();
 
         } else {
             if(answer == dataEn[currentQuiz].correct){
@@ -222,18 +211,7 @@ function validateAnswer() {
             }
             counter++;
             currentQuiz++;
-
-            if(currentQuiz < dataEnLenght){
-                setTimeout( ()=> {
-                    qPoints.textContent = `Points: ${player.points}`;
-                    qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
-                    loadQuizEn()
-                },1200 )
-            } else{
-                quizBox.classList.add('hide')
-                playerBox.classList.remove('hide')
-                showPlayers();
-            }
+            countQuiz();
         }
     } else {
         Swal.fire({
@@ -242,6 +220,20 @@ function validateAnswer() {
         })
     }
 };
+
+function countQuiz() {
+    if(currentQuiz < dataEnLenght){
+        setTimeout( ()=> {
+            qPoints.textContent = `Points: ${player.points}`;
+            qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
+            loadQuizEn()
+        },1200 )
+    } else{
+        quizBox.classList.add('hide')
+        playerBox.classList.remove('hide')
+        showPlayers();
+    }
+}
 
 function activeSp() {
     btnSp.classList.add('active');
