@@ -17,29 +17,29 @@ function getPlayer() {
     player.name = userName.value;
     player.points = 0;
 
-    const div = document.createElement('div');
+    // const div = document.createElement('div');
 
 
-    div.classList.add('fade-in');
-    div.innerHTML = `<div class="welcome">
-                        <div class="welcome-h1">
-                            <h1>
-                                <span class="welcome-title">Welcome!</span></br>
-                                <span class="welcome-name">${player.name}</span>
-                            </h1>
-                        </div>
-                    </div>`;
+    // div.classList.add('fade-in');
+    // div.innerHTML = `<div class="welcome">
+    //                     <div class="welcome-h1">
+    //                         <h1>
+    //                             <span class="welcome-title">Welcome!</span></br>
+    //                             <span class="welcome-name">${player.name}</span>
+    //                         </h1>
+    //                     </div>
+    //                 </div>`;
     userBox.classList.add('hide');
-    userBox.insertAdjacentElement('afterend',div)
+    // userBox.insertAdjacentElement('afterend',div)
 
-    setTimeout( () => {
-        div.classList.add('hidden');
-    },2500);
+    // setTimeout( () => {
+    //     div.classList.add('hidden');
+    // },2500);
+    boxLng.classList.remove('hide');
 
-    setTimeout( () => {
-        div.remove();
-        boxLng.classList.remove('hide');
-    },3500);
+    // setTimeout( () => {
+    //     // div.remove();
+    // },1500);
 };
 
 

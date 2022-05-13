@@ -192,9 +192,7 @@ function validateAnswer() {
                     title: 'Incorrecto'
                 })
             }
-            counter++;
-            currentQuiz++;
-            countQuiz();
+            countQuiz(dataSpLenght,'sp');
 
         } else {
             if(answer == dataEn[currentQuiz].correct){
@@ -209,9 +207,7 @@ function validateAnswer() {
                     title: 'Incorrect!'
                 })
             }
-            counter++;
-            currentQuiz++;
-            countQuiz();
+            countQuiz(dataEnLenght,'en');
         }
     } else {
         Swal.fire({
@@ -221,12 +217,18 @@ function validateAnswer() {
     }
 };
 
-function countQuiz() {
-    if(currentQuiz < dataEnLenght){
+function countQuiz(data,lang) {
+    counter++;
+    currentQuiz++;
+    if(currentQuiz < data){
         setTimeout( ()=> {
             qPoints.textContent = `Points: ${player.points}`;
             qCounter.textContent = `Question ${counter} of ${dataSpLenght}`
-            loadQuizEn()
+            if(lang == 'sp'){
+                loadQuizSp();
+            } else {
+                loadQuizEn();
+            }
         },1200 )
     } else{
         quizBox.classList.add('hide')
