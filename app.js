@@ -184,7 +184,8 @@ function validateAnswer() {
                 player.points += 10;
                 Toast.fire({
                 icon: 'success',
-                title: 'Correcto'
+                title: 'Correcto',
+                html: '<p>10 puntos</p>'
                 })
             } else {
                 Toast.fire({
