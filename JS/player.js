@@ -17,51 +17,40 @@ function getPlayer() {
     player.name = userName.value;
     player.points = 0;
 
-    // const div = document.createElement('div');
-
-
-    // div.classList.add('fade-in');
-    // div.innerHTML = `<div class="welcome">
-    //                     <div class="welcome-h1">
-    //                         <h1>
-    //                             <span class="welcome-title">Welcome!</span></br>
-    //                             <span class="welcome-name">${player.name}</span>
-    //                         </h1>
-    //                     </div>
-    //                 </div>`;
     userBox.classList.add('hide');
-    // userBox.insertAdjacentElement('afterend',div)
-
-    // setTimeout( () => {
-    //     div.classList.add('hidden');
-    // },2500);
     boxLng.classList.remove('hide');
 
-    // setTimeout( () => {
-    //     // div.remove();
-    // },1500);
 };
 
 
-function showPlayers() {
-    let place = document.createElement('p')
-    place.classList.add('player-place__input');
-    place.textContent = "1."
+function showPlayers(player) {
+    const lastDiv = document.querySelector('#quiz');
+    const div = document.createElement('div');
+    div.classList.add('box', 'fade-in');
 
-    let pName = document.createElement('p')
-    pName.classList.add('player-name__input');
-    pName.textContent = player.name;
+    const medalFirst = "https://visualpharm.com/assets/523/Olympic%20Medal%20Gold-595b40b65ba036ed117d30ce.svg";
+    const medalSecond = "https://visualpharm.com/assets/925/Olympic%20Medal%20Silver-595b40b65ba036ed117d30cf.svg";
+    const medalThird = "https://visualpharm.com/assets/412/Olympic%20Medal%20Bronze-595b40b65ba036ed117d30cd.svg";
+    let imgMedal ;
 
-    let pPoints = document.createElement('p')
-    pPoints.classList.add('player-points__input');
-    pPoints.textContent = `${player.points} PTS`
+    if(player.points <= 20){
+        imgMedal = medalThird;
+    } else if ( player.points > 20 && player.points <= 60){
+        imgMedal = medalSecond;
+    } else if ( player.points > 60 && player.points <= 100){
+        imgMedal = medalFirst;
+    }
 
-    playerPlace.appendChild(place)
-    playerName.appendChild(pName)
-    playerPoints.appendChild(pPoints)
+    div.innerHTML = `<h2 class="player-data">Hi ${player.name}!</h2>
+                    <p class="player-info">YOU EARN:</p>
+                    <h3 class="player-points">${player.points} Points</h3>
+                    <img class="player-medal" src=${imgMedal} alt="medal first place">
+                    <div class="button-user">
+                        <button class="btn-style" id="btn-again">Play Again?</button>
+                    </div>`
 
+    lastDiv.insertAdjacentElement('afterend',div);
 }
-
 
 
 
@@ -70,4 +59,4 @@ export{
     showPlayers,
     getPlayer,
     playerBox
-}
+} 

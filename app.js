@@ -52,7 +52,6 @@ const dataSpLenght = dataSp.length
 const dataEnLenght = dataEn.length
 
 
-
 startApp();
 eventListeners();
 
@@ -200,7 +199,8 @@ function validateAnswer() {
                 player.points += 10;
                 Toast.fire({
                     icon: 'success',
-                    title: 'Correct!'
+                    title: 'Correct!',
+                    html: '<p>10 points</p>'
                 })
             } else {
                 Toast.fire({
@@ -231,10 +231,10 @@ function countQuiz(data,lang) {
                 loadQuizEn();
             }
         },1200 )
+        
     } else{
         quizBox.classList.add('hide')
-        playerBox.classList.remove('hide')
-        showPlayers();
+        showPlayers(player);
     }
 }
 

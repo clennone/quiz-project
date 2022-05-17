@@ -414,6 +414,39 @@ input[type=number] { -moz-appearance:textfield; }
     animation: gradient 15s ease infinite;
 }
 
+.player-data{
+    font-family: var(--titleFont);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.player-info{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.player-points{
+    text-align: center;
+    font-size: 4rem;
+    margin: 2rem 0;
+    background: linear-gradient(-45deg, #70A9A1, #CFD7C7,#F6F1D1);
+    background-size: 400% 400%;
+    -webkit-text-fill-color: transparent; 
+    -webkit-background-clip: text; 
+    background-clip: text;
+    animation: gradient 10s ease infinite;
+}
+
+.player-medal{
+    display: block;
+    margin: auto;
+    max-width: 30%;
+}
+
+
 
 /* Mobile phones */
 @media (max-height: 375px){
@@ -447,6 +480,6 @@ input[type=number] { -moz-appearance:textfield; }
     }
 
     .title_name{
-        font-size: 5rem;
+       font-size: 5rem;
     }
 }
